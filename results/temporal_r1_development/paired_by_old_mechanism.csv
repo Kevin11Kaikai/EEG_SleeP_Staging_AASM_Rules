@@ -1,0 +1,5 @@
+old_group,n,changed,corrections,regressions,net
+direct_old_arousal,568,473,302,43,259
+inherit_old_arousal_anchor,540,98,52,13,39
+other_inheritance,1246,78,19,44,-25
+other_rules,6548,22,5,11,-6

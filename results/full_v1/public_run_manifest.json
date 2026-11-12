@@ -1,8 +1,0 @@
-{
-  "scope": "aggregate public summary; original detailed freeze remains local",
-  "records": 151,
-  "status": "FULL_EVALUATED",
-  "prediction_core_sha256": "6f96c0ba0ab4c1f1facc086075b6398de01ebbdbdd0c9d7c90eafd7e1c587d6a",
-  "configuration_sha256": "cdb506f0e060514d597e542f6077d22c091aacae2cbdd4e841335978d40f3c41",
-  "source_git_revision": "b56131ca1fd6d733bfd3cb4d806b215c05bde634"
-}

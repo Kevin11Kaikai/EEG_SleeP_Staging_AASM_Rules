@@ -1,0 +1,38 @@
+{
+  "label_end_disagreement": {
+    "n": 612,
+    "V3_errors": 530,
+    "R1_errors": 356,
+    "changed": 388
+  },
+  "fallback_N2_after_reset": {
+    "n": 86,
+    "V3_errors": 76,
+    "R1_errors": 41,
+    "changed": 83
+  },
+  "K_reentry": {
+    "n": 588,
+    "V3_errors": 387,
+    "R1_errors": 323,
+    "changed": 193
+  },
+  "R1_REM_old_arousal": {
+    "n": 4,
+    "V3_errors": 3,
+    "R1_errors": 2,
+    "changed": 4
+  },
+  "physiological_arousal_active": {
+    "n": 1083,
+    "V3_errors": 931,
+    "R1_errors": 765,
+    "changed": 411
+  },
+  "old_arousal_inherited": {
+    "n": 540,
+    "V3_errors": 476,
+    "R1_errors": 437,
+    "changed": 98
+  }
+}

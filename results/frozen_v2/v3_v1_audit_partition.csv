@@ -1,0 +1,5 @@
+group,epochs,changed,corrections,regressions,net
+direct_arousal_termination,6182,6182,564,3768,-3204
+inherited_arousal_anchor,5043,5043,593,2617,-2024
+other_inheritance,19186,5648,1533,1650,-117
+other_rules,101262,6942,1662,2355,-693

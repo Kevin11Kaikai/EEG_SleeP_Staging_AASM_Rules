@@ -1,0 +1,41 @@
+{
+  "protocol_version": "v2.0-pre-evaluation",
+  "seed": 20261112,
+  "epoch_seconds": 30,
+  "sampling_hz": 128,
+  "filters": {"eeg": [0.3, 35], "eog": [0.3, 15], "emg": [10, 45], "order": 4},
+  "qc": {"min_ptp_uv": 0.5, "max_abs_uv": {"eeg": 1000, "eog": 2000, "emg": 5000}, "repeated_fraction": 0.2, "saturation_fraction": 0.05},
+  "yasa": {
+    "chunk_seconds": 1200, "context_seconds": 30,
+    "slow_wave": {"freq_sw": [0.3, 1.5], "dur_neg": [0.3, 1.5], "dur_pos": [0.1, 1], "amp_neg": [40, 200], "amp_pos": [10, 150], "amp_ptp": [75, 350]},
+    "spindle": {"freq_sp": [12, 15], "freq_broad": [1, 30], "duration": [0.5, 2], "min_distance": 500, "thresh": {"rel_pow": 0.2, "corr": 0.65, "rms": 1.5}},
+    "rem": {"amplitude": [50, 325], "duration": [0.3, 1.2], "relative_prominence": 0.8, "freq_rem": [0.5, 5]}
+  },
+  "enhanced": {
+    "lamf": {"window_s": 1, "step_s": 0.5, "rms_max_uv": 20, "theta_fraction_min": 0.01, "minimum_s": 1},
+    "emg": {"stable_window_s": 30, "stable_cv_max": 0.5, "floor_quantile": 0.1, "low_multiplier": 1.5, "high_multiplier": 3},
+    "kcomplex": {"band": [0.3, 4], "negative_uv": 50, "positive_uv": 20, "ptp_min_uv": 75, "ptp_max_uv": 350, "duration_min_s": 0.5, "duration_max_s": 2, "arousal_after_s": 1},
+    "arousal": {"baseline_s": 10, "minimum_s": 3, "relative_increase": 0.15, "power_ratio": 2, "frequency_increase_hz": 2, "stability_l1_max": 0.35, "emg_increase_s": 1, "emg_ratio": 1.5, "emg_absolute_increase_uv": 1},
+    "blink": {"minimum_uv": 50, "maximum_uv": 325, "duration_s": [0.1, 0.5], "same_polarity_correlation": 0.6, "artifact_context_s": 0.5, "artifact_emg_rms_uv": 30},
+    "sem": {"duration_s": [1, 5], "minimum_uv": 30, "negative_correlation": -0.5, "minimum_initial_deflection_s": 0.5},
+    "vertex": {"negative_uv": 40, "duration_s": [0.1, 0.5]},
+    "mbm": {"eeg_rms_uv": 100, "eeg_beta_fraction": 0.3, "emg_rms_uv": 30, "coverage_gt_s": 15}
+  },
+  "evidence_policy": {
+    "enhanced": "candidate_proxy: explicit operational proposition count=0 after successful valid detection; clinical absence remains UNKNOWN. STRICT_EVIDENCE separately uses clinical_strict, never fabricating validated negatives.",
+    "original": "explicit legacy operational candidate-absence semantics, never clinical negative validation"
+  },
+  "fallbacks": ["INHERIT_PREVIOUS", "ABSTAIN", "CONDITIONAL_INHERIT"],
+  "conditional_inherit_max_chain": 2,
+  "bootstrap_iterations": 1000,
+  "variants": {
+    "V0": ["original", "original", "INHERIT_PREVIOUS"],
+    "V1": ["enhanced", "original", "INHERIT_PREVIOUS"],
+    "V2": ["original", "enhanced", "INHERIT_PREVIOUS"],
+    "V3": ["enhanced", "enhanced", "INHERIT_PREVIOUS"],
+    "V4": ["enhanced", "enhanced", "ABSTAIN"]
+  },
+  "primary_variant": "V3",
+  "analysis": "All five variants on identical reference masks; full cohort is historical comparison; report held-out 141 separately. No accuracy-based parameter search. Factorial differences are package effects, not twelve individually identified causal effects.",
+  "clinical_event_validation": false
+}

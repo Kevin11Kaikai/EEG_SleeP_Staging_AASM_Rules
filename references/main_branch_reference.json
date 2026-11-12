@@ -1,0 +1,19 @@
+{
+  "main_commit": "8e973edb85eb4b9a9cadcb3adbb855b484d477c1",
+  "main_url": "https://github.com/Kevin11Kaikai/EEG_SleeP_Staging_AASM_Rules/tree/main",
+  "branch": "AASM_Rules_V2",
+  "status": "LOCAL_PREPARATION_NOT_PUSHED",
+  "frozen_v2_source_hash": "e47d39fc6f58c8d009af9531f197a66f3d0ce8e28b5b2e37983de1747c121261",
+  "temporal_r1_hash": "c92de5185a049f051df4f8aebd93baa4fcd62b051f9f6de4271642de99951d78",
+  "new_evaluation": "fixed development recordings only; 10 records; 8902 primary epochs",
+  "private_artifacts_excluded": [
+    "raw PSG",
+    "scoring files",
+    "epoch labels or predictions",
+    "record-level clinical results",
+    "real waveform figures",
+    "event banks",
+    "detailed traces",
+    "local absolute paths"
+  ]
+}

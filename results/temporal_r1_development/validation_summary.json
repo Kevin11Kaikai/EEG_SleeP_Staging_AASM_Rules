@@ -1,0 +1,18 @@
+{
+  "synthetic_tests": 31,
+  "real_edf_replayed": 10,
+  "all_prediction_epochs": 9212,
+  "primary_epochs": 8902,
+  "full_valid_epochs": 9211,
+  "event_and_evidence_exact_records": 10,
+  "frozen_V1_V3_exact_records": 10,
+  "protected_parent_files": 930,
+  "protected_legacy_artifacts": 6,
+  "independent_sklearn_recomputation": true,
+  "maximum_metric_float_difference": 2.78e-16,
+  "source_config_test_hash": "c92de5185a049f051df4f8aebd93baa4fcd62b051f9f6de4271642de99951d78",
+  "final141_labels_parsed": false,
+  "clinical_event_gold_standard": false,
+  "replay_elapsed_seconds": 136.44122780000907,
+  "primary_explicit_post_arousal_majority": 637
+}

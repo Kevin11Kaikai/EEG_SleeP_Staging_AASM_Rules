@@ -1,0 +1,2 @@
+# Scientific hashes are byte-based; do not normalize frozen source/config bytes.
+* -text

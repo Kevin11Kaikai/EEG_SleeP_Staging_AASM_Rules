@@ -1,0 +1,6 @@
+bank,status,detector_record_pairs
+enhanced,AVAILABLE,1208
+enhanced,PARTIALLY_SUPPORTED,1042
+enhanced,UNAVAILABLE,15
+original,AVAILABLE,1208
+original,PARTIALLY_SUPPORTED,302

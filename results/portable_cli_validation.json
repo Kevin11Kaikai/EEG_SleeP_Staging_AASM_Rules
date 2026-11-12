@@ -1,0 +1,10 @@
+{
+  "real_psg_records": 1,
+  "event_bank_exact": true,
+  "V1_V3_predictions_exact": true,
+  "R1_predictions_exact": true,
+  "primary_full_metric_parity": true,
+  "comparison_target": "sealed temporal_r1 development replay",
+  "clinical_artifacts": "local ignored directory only; not part of public manifest",
+  "validated_utc": "2026-11-12T22:52:31.282654+00:00"
+}

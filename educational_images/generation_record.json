@@ -1,0 +1,24 @@
+{
+  "method": "built-in image_gen; no API-key CLI; no clinical image inputs",
+  "source": "actual frozen V2/R1 code plus synthetic teaching examples",
+  "review": "visual inspection; corrected history dependence and removed misleading oscillatory decoration from temporal example",
+  "images": [
+    {
+      "file": "v2_pipeline.png",
+      "sha256": "93d3adf82c765161969720bb16c59a14582a29ab90cb9a906e3219a4463bff1a",
+      "pixels": [
+        1086,
+        1448
+      ]
+    },
+    {
+      "file": "temporal_r1.png",
+      "sha256": "cd77b2585fe9c4fce3df320b65bf1b15659eaea5b3633dcbeb01a67de49b681c",
+      "pixels": [
+        1086,
+        1448
+      ]
+    }
+  ],
+  "prompts": "adjacent .prompt.md and edit_prompt.md files"
+}

@@ -1,0 +1,37 @@
+{
+  "version": "temporal-r1.0",
+  "started_utc": "2026-11-12T22:15:32Z",
+  "design": "Source-grounded repair on the already fixed development recordings; not an independent clinical or blind test",
+  "development": ["SN001","SN002","SN003","SN004","SN005","SN006","SN007","SN008","SN009","SN010"],
+  "seed": 20261112,
+  "scope": ["Separate epoch output label from physiological end context", "Chronological post-arousal N2/N1 segment accounting", "Local non-associated K-complex reentry", "R.1 precedence over N2.4 arousal path"],
+  "fixed": ["all detectors including the known 4Hz overlap", "all detector parameters", "signal preprocessing", "INHERIT_PREVIOUS function", "candidate_proxy evidence policy", "all unrelated rule predicates", "original primary and full-record evaluation masks"],
+  "segment_conventions": {
+    "intervals": "half-open [onset,offset)",
+    "majority": "strictly greater than 15 seconds of the fixed 30-second epoch; UNKNOWN seconds never removed from denominator",
+    "arousal_interval": "UNKNOWN segment; does not count toward either N1 or N2. This is an explicit conservative engineering convention, not verified verbatim AASM v2.4 text",
+    "post_arousal_N1": "Only actual LAMF-covered time after arousal offset and before a new qualifying K/spindle; interruptions retained across epochs even when output label remains N2",
+    "N2_before_arousal": "Preserve an existing N2 context up to onset; a qualifying first-half N2 event retains the frozen onset rule where no intervening arousal occurs",
+    "reentry": "A new qualifying K or spindle at or after the active arousal offset changes end context to N2 at its onset; K-associated arousal list must be empty; no epoch-wide arousal veto",
+    "carry_anchor": "An event in the frozen previous-last-15-seconds onset window initializes current physiological N2 context only if the window is valid and no intervening/overlapping arousal invalidated it",
+    "R3_N2_label": "Preserve R.3.N2 epoch-label priority, but retain any later N2-arousal termination in the independent end context",
+    "multiple_arousals": "chronological processing; every new arousal after an N2 anchor invalidates that anchor; later structure may reenter again",
+    "exact_tie_or_insufficient": "No new temporal-majority rule. Continue original remaining rules then unchanged fallback; never use fallback output to resurrect invalid physiological N2 context",
+    "end_context": "Physiological state survives separately from label; UNKNOWN LAMF gaps do not constitute validated clinical negatives",
+    "scope_limit": "Segment engine addresses N2-arousal episodes only; does not redesign general N1, REM termination, MBM, N3 or Wake scoring"
+  },
+  "priority": "Keep original N3/W, R.3 and movement semantics. R.1 precedes N2 arousal segment assignment. Unrelated N1/N2 continuation predicates remain frozen.",
+  "fallback": "INHERIT_PREVIOUS, unchanged and unbounded, using the previous output label, not end context",
+  "sources": [
+    "https://aasm.org/wp-content/uploads/2017/11/Summary-of-Updates-in-v2.1-FINAL.pdf#page=3",
+    "https://arxiv.org/html/2603.26738v4#A1"
+  ],
+  "validation_sequence": ["synthetic timing tests", "single concentrated read-only code/scope review", "freeze code/config/test hashes", "real EDF replay of all ten fixed development recordings", "seal predictions", "development-only evaluation and paired trace analysis"],
+  "label_policy": "No final-evaluation record annotations read. Implementation frozen before new development metrics. No accuracy-dependent threshold or policy selection.",
+  "comparators": ["frozen V1 on same development IDs", "frozen V3 on same development IDs", "temporal R1"],
+  "metrics": ["Accuracy", "Macro-F1", "six-class kappa including abstention", "per-stage PRF1", "confusion", "coverage and accepted risk", "paired corrections/regressions", "per-record differences", "label lineage and physiological arousal-context propagation"],
+  "bootstrap": {"unit":"recording", "iterations":1000, "seed":20261112, "interpretation":"exploratory uncertainty on only ten reused development records"},
+  "waveform_cases": "Keep the previous audit's nine development cases; compare exact same epoch IDs and chain C06, no outcome-dependent case selection",
+  "full_151_run": false,
+  "clinical_event_validation": false
+}

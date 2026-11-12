@@ -1,0 +1,5 @@
+# Final timing-only correction
+
+The oscillatory illustration could imply a frequency measurement not supported by the synthetic state example. Replace it with event markers only; no rule or numeric changes.
+
+Make one final local correction to this educational poster. Preserve every box, all text except the small waveform captions, all timelines, numbers, colors and layout. In Panel 1, REMOVE the thin oscillatory EEG drawing and its three frequency/morphology captions above the 0–30 second timeline. The waveform is unnecessary and may misleadingly suggest a real frequency measurement. Replace that entire slim decorative band with a clean non-oscillating event-marker line: left text "合成事件时点示意", a small marker aligned at 25 seconds labelled "Arousal onset", and a marker aligned at 28 seconds labelled "Arousal offset". This band represents event timings, not EEG waveforms. Keep the thick colored duration bar below completely unchanged, including N2:25s, Arousal:3s UNKNOWN, LAMF:2s N1. Do not modify anything else.

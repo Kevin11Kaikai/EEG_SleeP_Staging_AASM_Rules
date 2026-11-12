@@ -1,0 +1,29 @@
+{
+  "created_utc": "2026-11-12T14:44:56.800415+00:00",
+  "source_hash": "e47d39fc6f58c8d009af9531f197a66f3d0ce8e28b5b2e37983de1747c121261",
+  "source_files": {
+    "src/aasm_v2/__init__.py": "98a3f6806dbfb6ca614348eb820e95455be1b2e8b0175774f576e487d5517be4",
+    "src/aasm_v2/data/__init__.py": "162b0d1a974ffbc9c560f32573a16644bce566fc5b68dbe32ea6316d944e6914",
+    "src/aasm_v2/data/edf.py": "96c891a6a65e13e7ef6ee40cd38621639e26c253ccefcd419a7bb60ec89ed289",
+    "src/aasm_v2/events/__init__.py": "4834f7c908746fc4003abaa9637e2f143929ef4d1ab938d44c28db57626fad58",
+    "src/aasm_v2/events/arousal.py": "c8a60816e79f66c14069abe33c8dc422cda3ee819ab85867189aaf9722e9c946",
+    "src/aasm_v2/events/morphology.py": "981cdc210895d7e2ad007aa64950972e5c7012ec398dfc88252ccbad3a67c669",
+    "src/aasm_v2/evidence/__init__.py": "b1ee9f27d4486bb115bf5e22132f2eaaaa87a4c6e595d5969125eb916cc6f803",
+    "src/aasm_v2/pipeline.py": "a4756ee3c0e8a5dc6bf678bd21a64175c7fa3db8f0382f99a1614cd7636178d1",
+    "src/aasm_v2/preprocessing/__init__.py": "2a7b80d69f43e4358ac26028f0a0ea144ea933c65eaa5a7c58ebaaffc4184c57",
+    "src/aasm_v2/provenance/__init__.py": "a72cc00586e0c672ba77f8e9417244ba72a8edcc49fc89bb7006e7b54cee1a14",
+    "src/aasm_v2/rules/__init__.py": "f5a157edf3088fb02efb6930eff6dac82b13b65fa43f9e3544511c4952a2be39",
+    "src/aasm_v2/rules/registry.py": "6f3e4ba215a7e92b93506b5d694d6f3687773935fceae3f734c754941a6f5683",
+    "src/aasm_v2/temporal/__init__.py": "d65d07eb34a4adcd304a3a0b39912eaf679b89ef4052f89fc2aab171d2f6d03b",
+    "src/aasm_v2/types.py": "f5fca3fd4dfe10aaeb8625a01ada45d2dac06ffaccbdf60d7849b4149825d46f"
+  },
+  "config_hash": "24175f9868d5fafae9e86efc78bc76dab6ab762963d974b574b55764b61f249e",
+  "split_hash": "125d5eccb1a688f923259e0d461c57f2583debcaee03d4b20a6c9f448e3b7934",
+  "test_hash": "b714499f80f1a7daeed81edabdaf04d591806f8f749e49fea39bac5e3168e189",
+  "review_hash": "ef0896ff9a6f116639dc71cb2e77bb802101b466902685fefe9cca8ec3ca3c44",
+  "primary_variant": "V3",
+  "development_stage_metrics_seen": "three fixed pilot records only, after all parameter choices",
+  "final_evaluation_seen": false,
+  "random_seed": 20261112,
+  "grouping_unit": "recording"
+}

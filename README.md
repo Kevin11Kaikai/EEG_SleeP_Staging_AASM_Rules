@@ -1,99 +1,107 @@
-# HMC × Staging by the Book
+# Enhanced AASM Rule-Based Sleep Staging V2
 
-确定性、paper-inspired 五阶段睡眠分期研究基线，独立于 COVER 训练/划分/评估。本公开备份包含原科学源码、配置、测试、方法审计、两张教学图及 **151 晚总体汇总指标**。
+从真实 PSG 生理候选事件产生五阶段睡眠分期的确定性研究工程。`AASM_Rules_V2` 分支基于 main 的公开交付形式整理；main 保留原 Legacy 基线。本分支包含独立重建的 V2、冻结的151晚历史对照、以及后续 **Temporal R1 时序修正版的10晚开发集验证**。
 
-**公开范围：**不发布逐 epoch 人工标签/预测、逐记录临床结果、原始或派生临床波形、原始 PSG、完整推理缓存。完整本地证据备份保留在原工作区；本公开仓库不声称能够独立重建患者级评价时间轴或续跑原冻结缓存。
+**结果并非全面改善。** 冻结 V3 全量 Accuracy 为48.5840%，低于 Legacy 的49.8546%，也低于 V1 的53.1696%。后续 R1 在固定开发集将 V3 的49.0002%提高到51.9996%，但仍低于同批V1的54.9090%。R1尚未运行最终141条或全151条评价。
 
-## Repository structure
+## 项目结构
 
 ```text
-hmc-staging-by-the-book/
-├── data/                 # 数据清单、校验信息与下载说明，不含原始 PSG
-├── configs/              # 检测器阈值、分期规则与评估配置
-├── src/                  # EDF 读取、预处理、事件检测、规则引擎与评估
-├── scripts/              # CLI 入口：download、predict、evaluate、ablation、audit
-├── tests/                # 自动化测试与标签隔离测试
-├── results/              # 冻结配置、指标、混淆矩阵与消融结果
-├── reports/              # 最终研究报告与 Implementation Audit
-├── educational_images/   # 两张教学图及对应生成提示词
-├── references/           # 论文、数据集与 YASA 的来源和版本记录
-├── requirements.lock.txt # 精确依赖版本
-├── .gitignore            # 排除原始数据、环境、缓存及大型运行产物
+AASM_Rules_V2/
+├── data/                 # 官方清单、SHA256、许可与本地数据说明；无PSG/评分
+├── configs/              # 冻结检测参数、记录划分、规则修订协议与代码指纹
+├── src/
+│   ├── aasm_v2/          # 冻结V2：读取、预处理、事件、证据、规则、provenance
+│   └── aasm_temporal_r1/ # 独立修正：片段时序、结束状态、重入与优先级
+├── scripts/              # predict / evaluate / ablation / audit / recheck_results
+├── tests/                # 检测器、规则、合成时序、标签隔离与指标测试
+├── results/
+│   ├── frozen_v2/        # 151晚冻结总体指标与消融；混淆矩阵存于metrics.json
+│   └── temporal_r1_development/ # 10晚开发集总体指标、配对变化与测试证据
+├── reports/              # 方法、十二项状态、真实结果、时序审计与复现说明
+├── educational_images/   # 两张合成教学图、初始提示词及修正提示词
+├── references/           # main来源、论文/数据/YASA版本、规则版本说明
+├── requirements.lock.txt # 实测Python环境的精确依赖
+├── pyproject.toml
+├── .gitignore            # 排除PSG、标签、环境、缓存与详细临床产物
+├── .gitattributes        # 保留冻结源码/配置的字节哈希
 ├── LICENSE
-└── README.md             # 项目介绍、真实结果、局限与复现命令
+└── README.md
 ```
 
-另含 src 布局安装文件 `pyproject.toml` 及公共文件校验清单 `BACKUP_MANIFEST.json`。GitHub 仓库实际名称为 EEG_SleeP_Staging_AASM_Rules，上图为项目逻辑名称。
+## 怎样从输入产生输出
 
-## 已完成的历史真实评测（总体汇总）
+真实EEG、双侧EOG和Chin EMG → μV单位、原生QC、有效连续块预处理 → 候选事件起止区间 → 三值证据 → 明确规则、时序状态与回退 → 阶段和Trace。没有神经网络或LLM阶段分类器。主实验的候选阴性代理明确记录，不能将其解释为临床事件不存在。
 
-| 窗口 | 记录数 | Epochs | Accuracy | Cohen's κ | Macro-F1 |
-|---|---:|---:|---:|---:|---:|
-| Primary：首末可靠非 Wake 之间 | 151 | 131,673 | 49.8546% | 0.245636 | 0.357505 |
-| Full valid record | 151 | 137,243 | 49.0043% | 0.248767 | 0.362414 |
+R1仅修改四件事：epoch标签与结束状态分离；Arousal后实际片段计时；局部合格K-complex重入；R.1优先于N2 Arousal片段。**所有检测器、参数、预处理及无界继承函数不变。** 详见[实际方法](reports/01_methods.md)与[时序修复结果](reports/04_temporal_revision.md)。
 
-来源：[总体指标](results/full_v1/overall_metrics.json)、[5×6 混淆矩阵](results/full_v1/confusion_matrix.csv)。UNDETERMINED 保留并计错；两个评分格式是同份人工评分的两种表示。
+## 冻结历史对照：151晚，同一131,673 primary epochs
 
-| 变体 | 内容 | Primary Accuracy | κ | Macro-F1 |
+|方法|事件检测器 / 规则引擎|Accuracy|Macro-F1|κ|
 |---|---|---:|---:|---:|
-| A | 明确规则 | 37.2392% | 0.194252 | 0.302474 |
-| B | A + continuity | 47.2010% | 0.227105 | 0.318484 |
-| C | B + inheritance | 49.8546% | 0.245636 | 0.357505 |
+|Legacy|原冻结基线|49.8546%|0.357505|0.245636|
+|V0|旧规格独立重建 / original-style|49.8530%|0.357475|0.245600|
+|V1|Enhanced / original-style|53.1696%|0.406007|0.305709|
+|V2|Original-style / enhanced|46.0778%|0.282926|0.178770|
+|V3|Enhanced / enhanced|48.5840%|0.423892|0.282917|
+|V4|V3，Abstention回退|42.4802%|0.397478|0.246443|
 
-各变体的汇总指标在 results/full_v1/ablations/。本公开备份仅复算汇总矩阵，不包含逐 epoch 预测证据。
+V4 Coverage=78.9691%，Conditional Accuracy=53.7935%，Accepted risk=46.2065%；表中Accuracy将拒绝计错。V0与Legacy并非逐样本完全相同，不能将V0重建误差算作增强收益。全量对照是历史比较，不是全新外部盲测。完整范围与指标在[冻结汇总](results/frozen_v2/metrics.json)。
 
-## 实际方法与限制
+## Temporal R1：固定10晚开发集，同一8,902 primary epochs
 
-真实 EEG / 双侧 EOG / Chin EMG → 原生 QC → 128 Hz 重采样、合格块滤波 → 生理候选事件 → 30 s 区间并集 → 全夜 Pass 1（N3/W/R/N2/N1）→ 顺序 Pass 2（R/N2 continuity，每 epoch 末可继承）。源码未改阈值或算法。
+|方法|Accuracy|Macro-F1|κ|Coverage|
+|---|---:|---:|---:|---:|
+|冻结V1|54.9090%|0.368825|0.301538|99.0789%|
+|冻结V3|49.0002%|0.396051|0.268743|99.3597%|
+|R1|51.9996%|0.400815|0.292166|99.3934%|
 
-- 没有监督阶段分类器或 LLM 补标签，没有 `else: N1`。
-- 继承没有最大链长/锚点年龄上限，可在 continuity 失败后发生；条件 UNKNOWN 与最终阶段 U 必须区分。
-- K/arousal、EMG 分位数及部分信号具体化包含 heuristic；无独立 HMC 人工事件级验证。
-- arousal 全量零候选且有滚动基线自抑制反例；YASA None 存在失效/无事件歧义；整通道重采样可跨质量边界。
-- Blink/SEM/vertex/background slowing 等分支未实现；N1 primary recall 仅0.1029%。
-- subject_id 是记录代理；未证实真实患者跨夜独立性。记录协议声明未按分数调参，当前核心与冻结指纹一致，但历史完整因果顺序不能由本公开备份独立证明。
+R1−V3：纠正378、新增错误111、净+267（+2.9993pp）；R1−V1：净−259（−2.9095pp）。主要增益是N2，N1召回、N3和REM存在退步；[完整结果](reports/03_results.md)保留这些负结果。软件时序修复不证明Arousal/K候选正确，也没有消除长期传播。
 
-[完整实现审计（公开文本版）](reports/HMC_Rule_Based_Implementation_Audit.md) · [方法映射](reports/PAPER_METHOD_MAPPING.md) · [公开研究结果](reports/FINAL_RESEARCH_REPORT.md)
+31项新增时序测试通过；公开包整合测试94项通过。开发集重读10晚真实EDF，事件、聚合证据和完整冻结V1/V3输出精确一致；预测封存后评价。只读独立sklearn复算通过。未使用最终评价标签选择本轮参数或方法。
 
-## Educational Images
+## Educational images
 
-两图均为 imagegen 教学示意，不是 HMC 实测临床波形；对应 .prompt.md 保存生成依据。
+两图使用内置imagegen生成，均为合成教学示意，没有临床波形或个人数据。生成提示词和定点修正记录保存在同目录；图片说明不能替代源代码。
 
-![规则引擎](educational_images/hmc_rule_staging_educational_v1.png)
+![信号、事件与可追溯分期](educational_images/v2_pipeline.png)
 
-![生理事件检测器](educational_images/hmc_physiological_detectors_educational_v1.png)
+![epoch标签与结束状态](educational_images/temporal_r1.png)
 
-## 安装与运行
+## 安装、验证与本地复现
 
-精确历史解释器为 Python3.12.14；其他依赖组合未验证。源码语法≥3.10。
+实测解释器Python3.12.14。其他依赖组合未经验证；MNE在NumPy2.5下有已观察到的deprecation warnings，相关测试仍通过。
 
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.lock.txt
 .\.venv\Scripts\python.exe -m pip install --no-deps -e .
-$env:PYTHONUTF8 = '1'
-$env:MNE_USE_NUMBA = 'false'
-.\.venv\Scripts\python.exe scripts/recheck_results.py --run-dir results/full_v1
-.\.venv\Scripts\python.exe -m pytest -q --basetemp=.runtime_tmp/pytest
+$env:PYTHONDONTWRITEBYTECODE='1'
+$env:PYTHONUTF8='1'
+.\.venv\Scripts\python.exe -m pytest -q -p no:cacheprovider
+.\.venv\Scripts\python.exe scripts/audit.py
+.\.venv\Scripts\python.exe scripts/recheck_results.py
+.\.venv\Scripts\python.exe scripts/ablation.py
 ```
 
-recheck_results 只从总体5×6矩阵复算 Accuracy、κ、Macro-F1，不读取个人级标签/信号。当前相关测试39 passed、3 skipped；跳过项依赖未公开的原始PSG/完整缓存。科学源码和两张图与已审计版本字节一致。
-
-下载官方 HMC 后可从头运行（默认数据目录被 Git 忽略）：
+使用已下载HMC v1.1；以下路径按本地位置替换。预测与评价分开，输出到被忽略的本地目录：
 
 ```powershell
-.\.venv\Scripts\python.exe scripts/download.py --subset smoke
-.\.venv\Scripts\python.exe scripts/predict.py --subset smoke --run-dir results/new_smoke
-.\.venv\Scripts\python.exe scripts/evaluate.py --run-dir results/new_smoke
-.\.venv\Scripts\python.exe scripts/ablation.py --run-dir results/new_smoke
-.\.venv\Scripts\python.exe scripts/audit.py --run-dir results/new_smoke
+python scripts/predict.py --psg X:/HMC/recordings/SN001.edf --run-dir results/local/new_smoke
+python scripts/evaluate.py --data-dir X:/HMC/recordings --run-dir results/local/new_smoke
 ```
 
-pilot/all 使用相应 --subset 和新的结果目录。不要用历史汇总目录替代完整推理缓存。当前外层预测依赖已校验下载元信息，底层 predict_one 不读取人工阶段内容。
+`predict.py`计算冻结V0–V4及R1，保持两个预测文件和各自校验记录。`evaluate.py`只评价指定目录中的已完成记录，核对TXT/EDF+一致且完整的30秒评分；primary为首末可靠非Wake之间。`download.py`仅提供官方获取说明，不会自动下载15GB。
 
-## 来源与许可
+公开包可以复算总体指标、运行合成测试，并在合法持有原始数据后从头预测。它不包含原历史逐epoch时间轴，因此不能仅凭公开文件独立重建所有历史配对结果或恢复私人checkpoint。
 
-- [论文 v1](https://arxiv.org/html/2605.22859v1)：49晚测试、十专家共识，参考60.5%/κ0.42；HMC是外部评估，不能直接视为严格复现成败。
-- [官方 HMC v1.1](https://physionet.org/content/hmc-sleep-staging/1.1/)：151晚临床PSG、AASM2.4；引用 Alvarez-Estevez & Rijsman (2022)，DOI10.13026/t79q-fr32。官方元信息及许可保存在data/，不含临床信号/评分文件。
-- 代码沿用 [GPLv3](LICENSE)；YASA审计引用源码保留BSD许可。其他来源见references/。
-- 预测核心SHA256：6f96c0ba0ab4c1f1facc086075b6398de01ebbdbdd0c9d7c90eafd7e1c587d6a。
+## 限制与公开范围
+
+- HMC无本项目独立专家事件金标准；Arousal、K、Blink、SEM、Vertex和MBM等保留experimental/partially supported状态。十二工作包的独立Accuracy贡献未逐项识别。
+- 已知4Hz频带重叠、稳定睡眠背景代理及事件混淆仍保留，未在本轮顺手修检测器。
+- 无界继承不变；“旧继承变为显式片段规则”不等于错误传播消失。
+- 官方AASM手册、Table S2操作化和HMC评分版本须分别理解；R1的UNKNOWN区间和平票回退为工程约定。[来源说明](references/README.md)
+- 置信区间按recording聚类，不是patient-level；开发记录重复使用，不能包装为盲测。
+- 不公开PSG、评分、逐epoch预测、逐记录临床结果、详细trace或实测波形。临床内容保留在本地研究工程中。[发布范围](reports/00_release_scope.md)
+
+代码沿用main的[GPLv3](LICENSE)；数据及YASA许可分别保留。所有正式数字均来自保存的汇总产物，不以教学图作为数值证据。

@@ -1,0 +1,24 @@
+[
+  {
+    "export": "results/public_tests.xml",
+    "original_sha256": "741cbc46ecc99d88773078f197f65daff3ebb0311940f598eec58212274a1ce7",
+    "exported_sha256": "be96fcb0d66069477d8b5da5e96105fb5d7403ff80e382f35f31e4abbd9d1657",
+    "removed_metadata": [
+      "hostname"
+    ],
+    "tests": 94,
+    "failures": 0,
+    "errors": 0
+  },
+  {
+    "export": "results/temporal_r1_development/synthetic_tests.xml",
+    "original_sha256": "f84f64fa4ed1dfe86970eb929555a365a71edc82b54dcd5205181fd2bd1c3cc6",
+    "exported_sha256": "825566710a2ff852810bddd48f575c0d331a20087e79af114a40c904fe55f77c",
+    "removed_metadata": [
+      "hostname"
+    ],
+    "tests": 31,
+    "failures": 0,
+    "errors": 0
+  }
+]
