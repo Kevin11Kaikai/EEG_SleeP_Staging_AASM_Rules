@@ -1,0 +1,23 @@
+# Private/local inputs and compute environment
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.runtime_cache/
+.runtime_tmp/
+data/recordings/
+*.edf
+*.EDF
+*.part
+.env
+.env.*
+*.pem
+*.key
+build/
+dist/
+results/new_*/
+.DS_Store
+Thumbs.db
+# Curated results, compressed metric evidence and educational PNGs are tracked.
