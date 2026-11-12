@@ -1,0 +1,96 @@
+experiment: hmc_sbtb_paper_inspired_v1
+epoch_sec: 30
+sampling_hz: 128
+channel_map:
+  frontal: EEG F4-M1
+  central: EEG C4-M1
+  occipital: EEG O2-M1
+  auxiliary: EEG C3-M2
+  eog_left: EOG E1-M2
+  eog_right: EOG E2-M2
+  emg: EMG chin
+filter:
+  order: 4
+  eeg: [0.3, 35.0]
+  eog: [0.3, 15.0]
+  emg: [10.0, 45.0]
+quality:
+  min_ptp_uv: 0.5
+  max_abs_eeg_uv: 1000
+  max_abs_eog_uv: 2000
+  max_abs_emg_uv: 5000
+  saturation_fraction: 0.05
+  line_ratio_warn: 0.2
+detectors:
+  chunk_sec: 1200
+  context_sec: 30
+  sw:
+    freq_sw: [0.3, 1.5]
+    dur_neg: [0.3, 1.5]
+    dur_pos: [0.1, 1.0]
+    amp_neg: [40, 200]
+    amp_pos: [10, 150]
+    amp_ptp: [75, 350]
+  spindle:
+    freq_sp: [12, 15]
+    freq_broad: [1, 30]
+    duration: [0.5, 2.0]
+    min_distance: 500
+    thresh: {rel_pow: 0.2, corr: 0.65, rms: 1.5}
+  rem:
+    amplitude: [50, 325]
+    duration: [0.3, 1.2]
+    relative_prominence: 0.8
+    freq_rem: [0.5, 5]
+  alpha:
+    window_sec: 2.0
+    step_sec: 0.5
+    band_hz: [8, 12]
+    psd_total_hz: [0.3, 35]
+    relative_threshold: 0.5
+    generator_min_total_sec: 30
+  lamf:
+    minimum_sec: 1.0
+    std_multiplier: 0.01
+    band_hz: [4, 7]
+    psd_total_hz: [0.3, 35]
+    relative_threshold: 0.01
+    definition: strict_contiguous_sample_amplitude
+  emg:
+    rms_window_sec: 1.0
+    step_sec: 0.5
+    low_quantile: 0.2
+    high_quantile: 0.8
+  kcomplex:
+    band_hz: [0.3, 4.0]
+    negative_peak_uv: 50
+    positive_peak_uv: 20
+    peak_to_peak_uv: 75
+    peak_interval_sec: [0.2, 1.0]
+    min_distance_sec: 0.5
+    max_ptp_uv: 350
+    arousal_after_sec: 3
+  arousal:
+    window_sec: 1.0
+    step_sec: 1.0
+    band_hz: [8, 30]
+    baseline_sec: 10
+    shift_ratio: 3.0
+    minimum_sec: 3
+    baseline_cv_max: 0.5
+rules:
+  sw_coverage_gt_sec: 6.0
+  wake_alpha_gt_sec: 15.0
+  n1_lamf_gt_sec: 15.0
+  n2_onset_half_window_sec: 15.0
+  rem_lamf_min_sec: 1.0
+  rem_low_emg_min_sec: 15.0
+  rem_eye_low_overlap_min_sec: 0.01
+  continuity_order: [R, N2]
+  inheritance: true
+evaluation:
+  bootstrap_seed: 20261106
+  bootstrap_iterations: 1000
+  zero_division: 0
+  primary: first_to_last_reliable_nonwake
+  sensitivity: all_reliable_complete_epochs

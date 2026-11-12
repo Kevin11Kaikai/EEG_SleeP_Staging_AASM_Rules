@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hmc-sbtb"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = ["mne==1.10.2", "yasa==0.6.5", "numpy", "scipy", "pandas", "scikit-learn", "matplotlib", "PyYAML", "psutil"]
+
+[project.scripts]
+hmc-sbtb = "hmc_sbtb.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["hmc_sbtb*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["requires_hmc: requires original HMC PSG or complete original prediction cache"]

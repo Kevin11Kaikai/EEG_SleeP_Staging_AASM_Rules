@@ -1,0 +1,10 @@
+Gender distribution: 85 M / 66 F
+
+Mean (std)
+----------
+Age 53.9 (15.4)
+TIB 7.6 (1.2)
+TST 6.3 (1.5)
+SE 83.0 (14.0)
+AHI_TST 14.6 (16.9)
+ArI_TST 19.9 (15.2)

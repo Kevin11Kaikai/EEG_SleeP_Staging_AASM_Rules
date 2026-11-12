@@ -1,0 +1,432 @@
+{
+  "full_record": {
+    "accuracy": 0.4626756920207224,
+    "accuracy_gap": -14.232430797927758,
+    "balanced_accuracy": 0.321592745828029,
+    "bootstrap": {
+      "invalid_draws": {
+        "N1_recall": 0,
+        "N2_recall": 0,
+        "N3_recall": 0,
+        "R_recall": 0,
+        "W_recall": 0,
+        "accuracy": 0,
+        "balanced_accuracy": 0,
+        "kappa": 0,
+        "macro_f1": 0
+      },
+      "invalid_policy": "omit only undefined metric draw, report count",
+      "iterations": 1000,
+      "percentile_95": {
+        "N1_recall": [
+          0.0,
+          0.0008055269473944127
+        ],
+        "N2_recall": [
+          0.9183847584726984,
+          0.9506080567390672
+        ],
+        "N3_recall": [
+          0.31619390667048614,
+          0.4194472049874954
+        ],
+        "R_recall": [
+          0.12622789138450446,
+          0.18024234557219818
+        ],
+        "W_recall": [
+          0.10331849983824376,
+          0.19994993068412675
+        ],
+        "accuracy": [
+          0.4432406075099977,
+          0.48131824953605234
+        ],
+        "balanced_accuracy": [
+          0.3072868951449475,
+          0.3361922007300624
+        ],
+        "kappa": [
+          0.2055960761658273,
+          0.25185910110227444
+        ],
+        "macro_f1": [
+          0.30300876905958235,
+          0.3444710239269774
+        ]
+      },
+      "seed": 20261106,
+      "subjects": 151,
+      "unit": "subject_id (record proxy unless confirmed one patient per recording)"
+    },
+    "confusion_matrix": [
+      [
+        3575,
+        4,
+        15793,
+        1572,
+        17,
+        2725
+      ],
+      [
+        135,
+        5,
+        12824,
+        408,
+        47,
+        2129
+      ],
+      [
+        17,
+        1,
+        46828,
+        1990,
+        21,
+        1226
+      ],
+      [
+        0,
+        0,
+        16703,
+        9860,
+        0,
+        108
+      ],
+      [
+        26,
+        1,
+        11262,
+        149,
+        3231,
+        6586
+      ]
+    ],
+    "epochs": 137243,
+    "kappa": 0.22883948730465342,
+    "kappa_gap": -0.19116051269534656,
+    "kappa_undefined_reason": null,
+    "macro_f1": 0.3238990334985989,
+    "predicted_labels": [
+      "W",
+      "N1",
+      "N2",
+      "N3",
+      "R",
+      "UNDETERMINED"
+    ],
+    "prediction_coverage": 0.9069242147140474,
+    "source_summary": [
+      {
+        "accuracy": 0.37479284530544604,
+        "decision_source": "CONTINUATION",
+        "epochs": 34998,
+        "proportion": 0.25500754136823006
+      },
+      {
+        "accuracy": 0.5631098344715048,
+        "decision_source": "DEFINITE",
+        "epochs": 89471,
+        "proportion": 0.6519166733458173
+      },
+      {
+        "accuracy": 0.0,
+        "decision_source": "UNDETERMINED",
+        "epochs": 12774,
+        "proportion": 0.09307578528595266
+      }
+    ],
+    "stage_metrics": {
+      "N1": {
+        "f1": 0.0006427148274310688,
+        "fn": 15543,
+        "fp": 6,
+        "precision": 0.45454545454545453,
+        "predicted_count": 11,
+        "recall": 0.00032158476974530485,
+        "tp": 5,
+        "true_count": 15548,
+        "undetermined_count": 2129,
+        "undetermined_rate": 0.1369307949575508
+      },
+      "N2": {
+        "f1": 0.610164632914856,
+        "fn": 3255,
+        "fp": 56582,
+        "precision": 0.45283821680688524,
+        "predicted_count": 103410,
+        "recall": 0.9350078869077332,
+        "tp": 46828,
+        "true_count": 50083,
+        "undetermined_count": 1226,
+        "undetermined_rate": 0.02447936425533614
+      },
+      "N3": {
+        "f1": 0.48511685116851166,
+        "fn": 16811,
+        "fp": 4119,
+        "precision": 0.7053437298805351,
+        "predicted_count": 13979,
+        "recall": 0.3696899253871246,
+        "tp": 9860,
+        "true_count": 26671,
+        "undetermined_count": 108,
+        "undetermined_rate": 0.004049341981927937
+      },
+      "R": {
+        "f1": 0.2629929591795206,
+        "fn": 18024,
+        "fp": 85,
+        "precision": 0.9743667068757539,
+        "predicted_count": 3316,
+        "recall": 0.15201129146083275,
+        "tp": 3231,
+        "true_count": 21255,
+        "undetermined_count": 6586,
+        "undetermined_rate": 0.3098565043519172
+      },
+      "W": {
+        "f1": 0.260578009402675,
+        "fn": 20111,
+        "fp": 178,
+        "precision": 0.9525712763122836,
+        "predicted_count": 3753,
+        "recall": 0.1509330406147091,
+        "tp": 3575,
+        "true_count": 23686,
+        "undetermined_count": 2725,
+        "undetermined_rate": 0.11504686312589715
+      }
+    },
+    "subject_macro": {
+      "accuracy": 0.46284212524907264,
+      "balanced_accuracy": 0.30596551909113084,
+      "kappa": 0.22005870664592236,
+      "macro_f1": 0.2748663873712126
+    },
+    "true_labels": [
+      "W",
+      "N1",
+      "N2",
+      "N3",
+      "R"
+    ],
+    "undetermined_rate": 0.09307578528595266,
+    "wake_prevalence": 0.17258439410388873,
+    "zero_division": 0
+  },
+  "primary": {
+    "accuracy": 0.4720102071039621,
+    "accuracy_gap": -13.29897928960379,
+    "balanced_accuracy": 0.31599213902988293,
+    "bootstrap": {
+      "invalid_draws": {
+        "N1_recall": 0,
+        "N2_recall": 0,
+        "N3_recall": 0,
+        "R_recall": 0,
+        "W_recall": 0,
+        "accuracy": 0,
+        "balanced_accuracy": 0,
+        "kappa": 0,
+        "macro_f1": 0
+      },
+      "invalid_policy": "omit only undefined metric draw, report count",
+      "iterations": 1000,
+      "percentile_95": {
+        "N1_recall": [
+          0.0,
+          0.0008055269473944127
+        ],
+        "N2_recall": [
+          0.9183847584726984,
+          0.9506080567390672
+        ],
+        "N3_recall": [
+          0.31619390667048614,
+          0.4194472049874954
+        ],
+        "R_recall": [
+          0.12622789138450446,
+          0.18024234557219818
+        ],
+        "W_recall": [
+          0.08132067144774172,
+          0.1675426452164766
+        ],
+        "accuracy": [
+          0.4533710233296738,
+          0.49045621279546264
+        ],
+        "balanced_accuracy": [
+          0.302926690449745,
+          0.33012559926182833
+        ],
+        "kappa": [
+          0.20547314526774454,
+          0.24942125897113845
+        ],
+        "macro_f1": [
+          0.29848205757632756,
+          0.337804501700193
+        ]
+      },
+      "seed": 20261106,
+      "subjects": 151,
+      "unit": "subject_id (record proxy unless confirmed one patient per recording)"
+    },
+    "confusion_matrix": [
+      [
+        2227,
+        4,
+        12485,
+        1326,
+        11,
+        2063
+      ],
+      [
+        135,
+        5,
+        12824,
+        408,
+        47,
+        2129
+      ],
+      [
+        17,
+        1,
+        46828,
+        1990,
+        21,
+        1226
+      ],
+      [
+        0,
+        0,
+        16703,
+        9860,
+        0,
+        108
+      ],
+      [
+        26,
+        1,
+        11262,
+        149,
+        3231,
+        6586
+      ]
+    ],
+    "epochs": 131673,
+    "kappa": 0.22710506982875223,
+    "kappa_gap": -0.19289493017124776,
+    "kappa_undefined_reason": null,
+    "macro_f1": 0.3184841144961613,
+    "predicted_labels": [
+      "W",
+      "N1",
+      "N2",
+      "N3",
+      "R",
+      "UNDETERMINED"
+    ],
+    "prediction_coverage": 0.9080145511988031,
+    "source_summary": [
+      {
+        "accuracy": 0.39144707392043926,
+        "decision_source": "CONTINUATION",
+        "epochs": 33509,
+        "proportion": 0.25448649305476445
+      },
+      {
+        "accuracy": 0.5698182494305769,
+        "decision_source": "DEFINITE",
+        "epochs": 86052,
+        "proportion": 0.6535280581440387
+      },
+      {
+        "accuracy": 0.0,
+        "decision_source": "UNDETERMINED",
+        "epochs": 12112,
+        "proportion": 0.0919854488011969
+      }
+    ],
+    "stage_metrics": {
+      "N1": {
+        "f1": 0.0006427148274310688,
+        "fn": 15543,
+        "fp": 6,
+        "precision": 0.45454545454545453,
+        "predicted_count": 11,
+        "recall": 0.00032158476974530485,
+        "tp": 5,
+        "true_count": 15548,
+        "undetermined_count": 2129,
+        "undetermined_rate": 0.1369307949575508
+      },
+      "N2": {
+        "f1": 0.6236042214601991,
+        "fn": 3255,
+        "fp": 53274,
+        "precision": 0.4678028411020759,
+        "predicted_count": 100102,
+        "recall": 0.9350078869077332,
+        "tp": 46828,
+        "true_count": 50083,
+        "undetermined_count": 1226,
+        "undetermined_rate": 0.02447936425533614
+      },
+      "N3": {
+        "f1": 0.4880704880704881,
+        "fn": 16811,
+        "fp": 3873,
+        "precision": 0.7179785917133911,
+        "predicted_count": 13733,
+        "recall": 0.3696899253871246,
+        "tp": 9860,
+        "true_count": 26671,
+        "undetermined_count": 108,
+        "undetermined_rate": 0.004049341981927937
+      },
+      "R": {
+        "f1": 0.2630571951964177,
+        "fn": 18024,
+        "fp": 79,
+        "precision": 0.9761329305135952,
+        "predicted_count": 3310,
+        "recall": 0.15201129146083275,
+        "tp": 3231,
+        "true_count": 21255,
+        "undetermined_count": 6586,
+        "undetermined_rate": 0.3098565043519172
+      },
+      "W": {
+        "f1": 0.21704595292627066,
+        "fn": 15889,
+        "fp": 178,
+        "precision": 0.925987525987526,
+        "predicted_count": 2405,
+        "recall": 0.12293000662397881,
+        "tp": 2227,
+        "true_count": 18116,
+        "undetermined_count": 2063,
+        "undetermined_rate": 0.1138772355928461
+      }
+    },
+    "subject_macro": {
+      "accuracy": 0.47094558691369576,
+      "balanced_accuracy": 0.3030580322016322,
+      "kappa": 0.21731576710661085,
+      "macro_f1": 0.2726734933502037
+    },
+    "true_labels": [
+      "W",
+      "N1",
+      "N2",
+      "N3",
+      "R"
+    ],
+    "undetermined_rate": 0.0919854488011969,
+    "wake_prevalence": 0.13758325548897649,
+    "zero_division": 0
+  }
+}

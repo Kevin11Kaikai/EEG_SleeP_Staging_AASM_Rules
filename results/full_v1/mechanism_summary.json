@@ -1,0 +1,12 @@
+{
+  "alpha_gt_15_epochs": 3781,
+  "lamf_gt_15_epochs": 2217,
+  "maximum_chain_length": 65,
+  "n1_all_necessary_conditions_intersection_epochs": 27,
+  "no_arousal_candidate_nights": 151,
+  "no_direct_n1_nights": 147,
+  "no_direct_wake_nights": 61,
+  "records": 151,
+  "scope": "audit-only feature intersections, distinct from executed rule branches",
+  "status": "TESTED"
+}

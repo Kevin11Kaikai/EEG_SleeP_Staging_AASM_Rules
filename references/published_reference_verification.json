@@ -1,0 +1,21 @@
+{
+  "accuracy": 0.6050131266408301,
+  "author_code": "NOT_VERIFIED: no verifiable repository found; some repository searches timed out",
+  "development_recordings": 1,
+  "kappa_independent_arithmetic": 0.42268904727308915,
+  "reference": "10-scorer majority vote, Sleep Revolution, AASM 2.6",
+  "rounded_reference": {
+    "N1_recall": 0.059,
+    "N2_recall": 0.835,
+    "N3_recall": 0.505,
+    "R_recall": 0.687,
+    "W_recall": 0.145,
+    "accuracy": 0.605,
+    "kappa": 0.42
+  },
+  "source": "https://arxiv.org/html/2605.22859v1",
+  "status": "VERIFIED_ORIGINAL_TABLE_AND_INDEPENDENT_ARITHMETIC",
+  "table4_correct": 29037,
+  "table4_epochs": 47994,
+  "test_recordings": 49
+}
