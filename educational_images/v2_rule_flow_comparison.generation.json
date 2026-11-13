@@ -1,0 +1,64 @@
+{
+  "created_utc": "2026-11-13T20:47:33.613303+00:00",
+  "generator": "built-in image_gen",
+  "external_paid_api_script": false,
+  "asset": "educational_images/v2_rule_flow_comparison.png",
+  "sha256": "8cf1b5f020006c8034061ca88b8a408b572eb999505411eb2d4508a751b7667d",
+  "width": 1024,
+  "height": 1536,
+  "format": "PNG",
+  "mode": "RGB",
+  "source_commits": {
+    "main_legacy_v1": "8e973edb85eb4b9a9cadcb3adbb855b484d477c1",
+    "published_v2_v3_and_r1": "b4f794fe72640dae9133326a6302a3682968a446"
+  },
+  "source_file_sha256": {
+    "src/aasm_v2/rules/__init__.py": "f5a157edf3088fb02efb6930eff6dac82b13b65fa43f9e3544511c4952a2be39",
+    "src/aasm_v2/evidence/__init__.py": "b1ee9f27d4486bb115bf5e22132f2eaaaa87a4c6e595d5969125eb916cc6f803",
+    "src/aasm_temporal_r1/engine.py": "76ed286f8380fd39742ebc174558bde10974228686996cfd2f9505f8448d660c",
+    "src/aasm_temporal_r1/timeline.py": "288b9ac0aeb1c1157a978566738e2bbb2742115fbf94a58a785ea0566e70ab54"
+  },
+  "reference": "User-provided main Legacy V1 educational schematic; style reference only",
+  "clinical_waveform_input": false,
+  "new_performance_claims": false,
+  "prompt_files": [
+    "educational_images/v2_rule_flow_comparison.prompt.md",
+    "educational_images/v2_rule_flow_comparison.edit_prompt.md",
+    "educational_images/v2_rule_flow_comparison.final_edit_prompt.md"
+  ],
+  "attempts": [
+    {
+      "index": 1,
+      "accepted": false,
+      "reason": "Time bar not geometrically proportional; add explicit N2.4 termination explanation"
+    },
+    {
+      "index": 2,
+      "accepted": false,
+      "reason": "Time bar still disproportionate; generated N3 equality boundary regressed to strict greater-than"
+    },
+    {
+      "index": 3,
+      "accepted": true,
+      "resolution": "N3 uses Chinese at-least wording; durations represented by explicitly unscaled interval cards"
+    }
+  ],
+  "visual_review": {
+    "reviewer": "assistant source-grounded visual review, not independent clinical validation",
+    "main_two_pass_vs_enhanced_chronological": true,
+    "legacy_v1_vs_ablation_v1_distinguished": true,
+    "n3_inclusive_six_seconds": true,
+    "wake_independent_branches": true,
+    "rem_thresholds_and_relative_priority": true,
+    "n2_onset_window_half_open": true,
+    "n2_and_rem_termination_and_continuation": true,
+    "r1_n2_interruption_scope": true,
+    "arousal_offset_equality_for_reentry": true,
+    "example_25_plus_3_plus_2_equals_30": true,
+    "duration_cards_explicitly_not_to_scale": true,
+    "unbounded_inheritance_retained": true,
+    "mbm_uses_algorithm_future_prediction": true,
+    "candidate_absence_not_clinical_absence": true,
+    "all_waveforms_schematic": true
+  }
+}

@@ -19,7 +19,7 @@ AASM_Rules_V2/
 │   ├── frozen_v2/        # 151晚冻结总体指标与消融；混淆矩阵存于metrics.json
 │   └── temporal_r1_development/ # 10晚开发集总体指标、配对变化与测试证据
 ├── reports/              # 方法、十二项状态、真实结果、时序审计与复现说明
-├── educational_images/   # 两张合成教学图、初始提示词及修正提示词
+├── educational_images/   # 三张合成教学图、初始提示词及修正提示词
 ├── references/           # main来源、论文/数据/YASA版本、规则版本说明
 ├── requirements.lock.txt # 实测Python环境的精确依赖
 ├── pyproject.toml
@@ -34,6 +34,25 @@ AASM_Rules_V2/
 真实EEG、双侧EOG和Chin EMG → μV单位、原生QC、有效连续块预处理 → 候选事件起止区间 → 三值证据 → 明确规则、时序状态与回退 → 阶段和Trace。没有神经网络或LLM阶段分类器。主实验的候选阴性代理明确记录，不能将其解释为临床事件不存在。
 
 R1仅修改四件事：epoch标签与结束状态分离；Arousal后实际片段计时；局部合格K-complex重入；R.1优先于N2 Arousal片段。**所有检测器、参数、预处理及无界继承函数不变。** 详见[实际方法](reports/01_methods.md)与[时序修复结果](reports/04_temporal_revision.md)。
+
+## 从生理事件到睡眠阶段：完整规则图
+
+**先分清执行方式：main 的 Legacy V1 是“全夜 Pass 1 明确规则，再按时间逐 epoch 做 Pass 2”；增强 V2 是逐 epoch 状态机，并不是给同一套两遍流程增加几个条件。** 图中的 V1 指 main Legacy，不是下方消融表中“Enhanced detectors + original-style engine”的 V1。公开分支同时保留冻结 V3 和 Temporal R1，图中分别标出二者，不混入后续未发布修订。
+
+![从生理事件到睡眠阶段：main V1两遍Pass、增强V2状态机、R1片段修复及继承边界](educational_images/v2_rule_flow_comparison.png)
+
+[打开高清原图](educational_images/v2_rule_flow_comparison.png) · [逐条条件、执行顺序与源码对应](reports/05_rule_flow_comparison.md) · [main V1 原教学图](https://github.com/Kevin11Kaikai/EEG_SleeP_Staging_AASM_Rules/blob/8e973edb85eb4b9a9cadcb3adbb855b484d477c1/educational_images/hmc_rule_staging_educational_v1.png)
+
+|比较点|main Legacy V1|增强 V2 / Temporal R1|
+|---|---|---|
+|执行顺序|整夜明确规则完成后，仅对 U 做 REM/N2 continuity 和继承|每个 epoch 按明确、终止、起始、持续规则的实际优先级判断，再回退|
+|N3 / Wake|慢波严格 >6 s；Wake 只有 Alpha 分支|慢波 ≥6 s；W.1 Alpha、W.2 Blink、W.3 不规则眼动与肌张力，三条独立分支|
+|REM 起始|LAMF ≥1 s、低EMG ≥15 s、眼动/低EMG重合 ≥0.01 s|LAMF >15 s、低EMG >15 s、重合 >0 s；另有 R.3 终止和 R.2 持续|
+|N1 / N2|N1 仅 Alpha 路径；N2 起始与简化持续|双 N1 路径；N2.1–N2.4；R1 进一步按实际 Arousal/LAMF/结构事件边界处理 N2 中断|
+|回退与边界|可在 continuity 失败后继承；无最大链长|主系统继承仍无界；R1 分离输出标签与 N2 生理末态，不能据此宣称传播问题已消失|
+|大幅运动|没有独立 MBM 临床分期分支|连续 MBM 块离线补判，只使用算法预测的未来阶段|
+
+图中 **25 s N2 + 3 s U + 2 s N1** 是合成时序示例，卡片不按时间比例绘制。`UNKNOWN` 是证据状态，`U` 是阶段输出；主实验 `candidate_proxy` 的“无候选”不等于临床事件不存在。完整条件以链接的源码与文字说明为准。
 
 ## 冻结历史对照：151晚，同一131,673 primary epochs
 
@@ -62,7 +81,7 @@ R1−V3：纠正378、新增错误111、净+267（+2.9993pp）；R1−V1：净�
 
 ## Educational images
 
-两图使用内置imagegen生成，均为合成教学示意，没有临床波形或个人数据。生成提示词和定点修正记录保存在同目录；图片说明不能替代源代码。
+三图使用内置imagegen生成，均为合成教学示意，没有临床波形或个人数据。上方的[完整规则对照图](educational_images/v2_rule_flow_comparison.png)解释 main V1 的两遍 Pass、V2 状态机和 R1 差异；下方两图分别补充事件检测流程与局部时序修复。生成提示词和定点修正记录保存在同目录；图片说明不能替代源代码。
 
 ![信号、事件与可追溯分期](educational_images/v2_pipeline.png)
 
