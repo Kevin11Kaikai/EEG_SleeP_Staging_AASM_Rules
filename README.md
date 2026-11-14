@@ -1,6 +1,6 @@
 # HMC × Staging by the Book
 
-确定性、paper-inspired 五阶段睡眠分期研究基线，独立于 COVER 训练/划分/评估。本公开备份包含原科学源码、配置、测试、方法审计、两张教学图及 **151 晚总体汇总指标**。
+确定性、paper-inspired 五阶段睡眠分期研究基线，独立于 COVER 训练/划分/评估。本公开备份包含原科学源码、配置、测试、方法审计、两张实现教学图、一张研究路线图及 **151 晚总体汇总指标**。
 
 **公开范围：**不发布逐 epoch 人工标签/预测、逐记录临床结果、原始或派生临床波形、原始 PSG、完整推理缓存。完整本地证据备份保留在原工作区；本公开仓库不声称能够独立重建患者级评价时间轴或续跑原冻结缓存。
 
@@ -15,7 +15,7 @@ hmc-staging-by-the-book/
 ├── tests/                # 自动化测试与标签隔离测试
 ├── results/              # 冻结配置、指标、混淆矩阵与消融结果
 ├── reports/              # 最终研究报告与 Implementation Audit
-├── educational_images/   # 两张教学图及对应生成提示词
+├── educational_images/   # 两张实现教学图、研究路线图及对应生成提示词
 ├── references/           # 论文、数据集与 YASA 的来源和版本记录
 ├── requirements.lock.txt # 精确依赖版本
 ├── .gitignore            # 排除原始数据、环境、缓存及大型运行产物
@@ -49,7 +49,7 @@ hmc-staging-by-the-book/
 - 没有监督阶段分类器或 LLM 补标签，没有 `else: N1`。
 - 继承没有最大链长/锚点年龄上限，可在 continuity 失败后发生；条件 UNKNOWN 与最终阶段 U 必须区分。
 - K/arousal、EMG 分位数及部分信号具体化包含 heuristic；无独立 HMC 人工事件级验证。
-- arousal 全量零候选且有滚动基线自抑制反例；YASA None 存在失效/无事件歧义；整通道重采样可跨质量边界。
+- **公开历史 full_v1：**arousal 全量零候选且有滚动基线自抑制反例；YASA None 存在失效/无事件歧义；整通道重采样可跨质量边界。下方路线图中的本地 v3 进展不属于该冻结版本。
 - Blink/SEM/vertex/background slowing 等分支未实现；N1 primary recall 仅0.1029%。
 - subject_id 是记录代理；未证实真实患者跨夜独立性。记录协议声明未按分数调参，当前核心与冻结指纹一致，但历史完整因果顺序不能由本公开备份独立证明。
 
@@ -57,11 +57,21 @@ hmc-staging-by-the-book/
 
 ## Educational Images
 
-两图均为 imagegen 教学示意，不是 HMC 实测临床波形；对应 .prompt.md 保存生成依据。
+以下两张实现教学图对应公开历史 full_v1；新增研究路线图单独标明后续本地进展。全部图片均为内置 imagegen 生成的教学示意，不是 HMC 实测临床波形；对应 .prompt.md 保存生成依据。
 
 ![规则引擎](educational_images/hmc_rule_staging_educational_v1.png)
 
 ![生理事件检测器](educational_images/hmc_physiological_detectors_educational_v1.png)
+
+### Research roadmap（2026-11-13）
+
+![AASM-inspired 研究路线：已实现、heuristic、未实现与未来计划](educational_images/hmc_event_evidence_research_roadmap_v1.png)
+
+路线图区分已实现、heuristic、未实现与未来计划；状态标签不代表临床事件级可靠性，也没有对成熟度或预期改进幅度进行定量评分。Foundation Model / Zero-shot / Agent 分支为未来计划，尚未接入当前基线，其增量收益未评估。
+
+**版本边界：**本图含本地 Arousal v3 的后续研究进展：151 晚冻结缓存重放产生 616 个候选，临床事件召回率 / 精确率仍未评估。此信息不表示本公开仓库的历史 full_v1 源码、配置或结果已升级到 v3；上面的历史指标与原教学图保持原版本含义。事件检测、规则覆盖和继承传播都可能影响分期错误，不能由混淆矩阵单独确定根因。
+
+[路线图说明与完整生成提示词](educational_images/hmc_event_evidence_research_roadmap_v1.prompt.md)
 
 ## 安装与运行
 

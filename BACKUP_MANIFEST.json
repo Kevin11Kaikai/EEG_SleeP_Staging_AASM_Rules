@@ -20,10 +20,10 @@
     "educational_images/hmc_physiological_detectors_educational_v1.prompt.md": "a6cd93aa0e9267791f23514865f3373da3228a928bde44496ac9f2a41fd5d7fc",
     "educational_images/hmc_rule_staging_educational_v1.png": "bfdcbfd3b6e9912951f93540c2767ea85b48e8570a830339401fb81de108cd4b",
     "educational_images/hmc_rule_staging_educational_v1.prompt.md": "82b33acf18852582fa64a5cd56d2534705bdc5339c8d759bda25b9905bd62971",
-    "educational_images/README.md": "8d92f77da80ad913c2a7b1956969518700660e1e902111d8665a62a73a63f17b",
+    "educational_images/README.md": "1b18a53b5be195f6cf33b2726dc321e8496460a0d52024fdf1271541b7bbca8d",
     "LICENSE": "daa176abeeae0c1b7797125175cdce140228098a789ef6ac34e3b53664fc450c",
     "pyproject.toml": "7fd37d5d7bcbe2f574586c8b1dfe86f18586443432b71c2e9edca08078adfbf8",
-    "README.md": "b8efaf7a47c0ce041b6ea16d23ef3b2b28a201e9bd158154d62a40f6975af40b",
+    "README.md": "baf0e692cfee238b920c6ed9c1e20c38e57ae464ee0f5e1f07a3b30b518f196b",
     "references/INDEPENDENT_PILOT_RECHECK.md": "e957698e2b1c30fa697c056bf615cb497582b593c2184324951e17c8f5da5f7e",
     "references/published_reference_verification.json": "f00291efcb4470ec33a8bd4f7ddf4dd90ed3b9144fa6562b24aa46076ff222db",
     "references/README.md": "e254c00417eef747a52c04c92147f66bccfca463990b4059fbd3fe56f89c5dd1",
@@ -120,6 +120,18 @@
     "src/hmc_sbtb/visualization.py": "ec31277076e1caf5451da461b9b40c6c70bd207cf4da2d4e9cce338cc4b3738e",
     "tests/conftest.py": "8fbd29f18edfbaf19869d8569c0616df248fd7a7620219096c62250620182fc1",
     "tests/test_leakage.py": "573ba77833af6083fd5de3709ff941781cc61d594a18a2ff8490f66ffda39e33",
-    "tests/test_system.py": "976ea9d7350095de93d23b693345e1f66abefb50588ee06a8872708a5ef26512"
+    "tests/test_system.py": "976ea9d7350095de93d23b693345e1f66abefb50588ee06a8872708a5ef26512",
+    "educational_images/hmc_event_evidence_research_roadmap_v1.prompt.md": "16117e2fe748c2844e99bcf89e14ae266252a6471a253e0b9fa8bdaa7aa44c89",
+    "educational_images/hmc_event_evidence_research_roadmap_v1.png": "4c46926fff69f9d74496a8d108daa29d87b939c06e01eaaf2c1600dce9c6a318"
+  },
+  "documentation_update": {
+    "date": "2026-11-13",
+    "base_commit": "8e973edb85eb4b9a9cadcb3adbb855b484d477c1",
+    "scope": "New schematic research roadmap and README references only; historical full_v1 scientific files unchanged.",
+    "added": [
+      "educational_images/hmc_event_evidence_research_roadmap_v1.png",
+      "educational_images/hmc_event_evidence_research_roadmap_v1.prompt.md"
+    ],
+    "local_v3_note": "Roadmap includes explicitly separated local v3 cached-replay progress; v3 source/results are not part of this image update."
   }
 }
