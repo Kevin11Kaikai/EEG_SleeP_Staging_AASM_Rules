@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "assets": {
+    "v3_01_events_to_stages_pass1_pass2": {
+      "png": {
+        "sha256": "4404717abe4715a3c353fbfcc736ae84772820c8f94e6a864785929ca45b9cc8",
+        "bytes": 281550,
+        "width": 2560,
+        "height": 1440
+      },
+      "svg": {
+        "sha256": "30ca871df56986f5ed3ee5393ed22b4ecb49c9b707654da263441111b4aec81b",
+        "bytes": 109626
+      }
+    },
+    "v3_02_spindle_yasa_wonambi": {
+      "png": {
+        "sha256": "1268b25285a649c1e2ba051ff79f6bed3eeab6abeb43d465e1636ef817127834",
+        "bytes": 320589,
+        "width": 2560,
+        "height": 1440
+      },
+      "svg": {
+        "sha256": "42a263ce6bc2313f308ac0356a730bc993d1885e838a5fd1f3e592636fcd1dd6",
+        "bytes": 147368
+      }
+    },
+    "v3_03_kcomplex_mtkcd": {
+      "png": {
+        "sha256": "fb51c529af3401f4f2f54d1ee06584139949baaf0117a2597c5a3915b00f9305",
+        "bytes": 314990,
+        "width": 2560,
+        "height": 1440
+      },
+      "svg": {
+        "sha256": "c49b1ed1aff185385407cd10f9b4fcc0dd241bfd1043c762b4d74d1085631d1f",
+        "bytes": 150340
+      }
+    },
+    "v3_04_arousal_unet": {
+      "png": {
+        "sha256": "08b2d8d2037ecd88a3db5410905ff6b796ba7a04012cfc81f1e6d5ce0ca0ca8e",
+        "bytes": 326991,
+        "width": 2560,
+        "height": 1440
+      },
+      "svg": {
+        "sha256": "fd96d8029fdfd3c55a64450ac7d5cd5e7faa13930e993e6d68645d86e3655c0a",
+        "bytes": 183976
+      }
+    },
+    "v3_05_rem_antiphase": {
+      "png": {
+        "sha256": "b7a9952982a85b1d252b8c84994a1030c4e89b205d9e3fa2792b7e6bfa006cdd",
+        "bytes": 279445,
+        "width": 2560,
+        "height": 1440
+      },
+      "svg": {
+        "sha256": "3fbb46db0709783bcde9b005ed5a587573703125dc7d0942e3d56e13d0495549",
+        "bytes": 159999
+      }
+    },
+    "v3_06_event_to_stage_ablation": {
+      "png": {
+        "sha256": "aaab94210fb747a89a00e5d01a65b7d63b697b79f7e0f7aabae2a3058717dd88",
+        "bytes": 231355,
+        "width": 2560,
+        "height": 1440
+      },
+      "svg": {
+        "sha256": "40968258a8a2bb3d0af7fc52b88efed2b3a2b512e27a1a029024d793b3f54101",
+        "bytes": 100664
+      }
+    },
+    "v3_07_remaining_bottlenecks": {
+      "png": {
+        "sha256": "54429e8d7c5724d939ecf3846dcc50984b8c5e78dad89e503187e11146f79265",
+        "bytes": 243681,
+        "width": 2560,
+        "height": 1440
+      },
+      "svg": {
+        "sha256": "e95bfeeb8ed2c55ade53842a323ac0fdf5af3bf1b1da01baf4243da088da2992",
+        "bytes": 111617
+      }
+    }
+  }
+}

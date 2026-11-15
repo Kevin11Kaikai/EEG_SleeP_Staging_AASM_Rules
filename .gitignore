@@ -8,6 +8,16 @@ data/recordings/
 *.edf
 *.bdf
 *sleepscoring*
+*.onnx
+*.pt
+*.pth
+*.ckpt
+*.h5
+*.hdf5
+*.npy
+*.npz
+*.parquet
+*.feather
 results/local/
 **/events.json.gz
 **/evidence.json.gz
@@ -17,6 +27,9 @@ results/local/
 **/recording_metrics.csv
 **/physiological_arousal_episodes.csv
 waveforms/
+model_weights/
+checkpoints/
+patient_exports/
 **/C??_paired.png
 **/selected_cases*.json
 

@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-11-15T19:42:07.927846+00:00",
+  "status": "PASS",
+  "branch": "AASM_Rule_V3_Event_Detectors_Improvement",
+  "base_commit": "155baa7895c2a4a20f8a788901f8412c3f8780b3",
+  "checks": [
+    {
+      "name": "exact_target_branch",
+      "status": "PASS",
+      "detail": "AASM_Rule_V3_Event_Detectors_Improvement"
+    },
+    {
+      "name": "base_commit_is_ancestor",
+      "status": "PASS",
+      "detail": "155baa7895c2a4a20f8a788901f8412c3f8780b3"
+    },
+    {
+      "name": "frozen_core_and_configs_unchanged",
+      "status": "PASS",
+      "detail": 0
+    },
+    {
+      "name": "scientific_metric_assertions",
+      "status": "PASS",
+      "detail": {
+        "eight_arms": true,
+        "best_accuracy_b100": true,
+        "best_macro_f1_b101": true,
+        "b111_not_best": true,
+        "wake_partition_closes": true,
+        "n3_partition_closes": true,
+        "sleepfm_negative_preserved": true
+      }
+    },
+    {
+      "name": "seven_png_and_svg_pairs",
+      "status": "PASS",
+      "detail": "7/7 valid at 2560x1440"
+    },
+    {
+      "name": "synthetic_waveform_labels",
+      "status": "PASS",
+      "detail": {
+        "v3_02_spindle_yasa_wonambi": true,
+        "v3_03_kcomplex_mtkcd": true,
+        "v3_04_arousal_unet": true,
+        "v3_05_rem_antiphase": true
+      }
+    },
+    {
+      "name": "relative_markdown_links",
+      "status": "PASS",
+      "detail": "all local links resolve"
+    },
+    {
+      "name": "readme_scientific_story",
+      "status": "PASS",
+      "detail": {
+        "first_image_is_legacy_flow": true,
+        "names_disambiguated": true,
+        "negative_results_present": true,
+        "fresh_reproduction_not_overclaimed": true
+      }
+    },
+    {
+      "name": "publication_privacy_and_size",
+      "status": "PASS",
+      "detail": "40 changed files scanned"
+    },
+    {
+      "name": "public_manifest_integrity",
+      "status": "PASS",
+      "detail": "file set and hashes match"
+    },
+    {
+      "name": "v3_contract_tests",
+      "status": "PASS",
+      "detail": "......                                                                   [100%]\n6 passed in 0.03s"
+    }
+  ],
+  "failed_checks": [],
+  "changed_files_scanned": [
+    ".gitignore",
+    "PUBLIC_MANIFEST.json",
+    "README.md",
+    "educational_images/README.md",
+    "educational_images/v3_01_events_to_stages_pass1_pass2.png",
+    "educational_images/v3_01_events_to_stages_pass1_pass2.svg",
+    "educational_images/v3_02_spindle_yasa_wonambi.png",
+    "educational_images/v3_02_spindle_yasa_wonambi.svg",
+    "educational_images/v3_03_kcomplex_mtkcd.png",
+    "educational_images/v3_03_kcomplex_mtkcd.svg",
+    "educational_images/v3_04_arousal_unet.png",
+    "educational_images/v3_04_arousal_unet.svg",
+    "educational_images/v3_05_rem_antiphase.png",
+    "educational_images/v3_05_rem_antiphase.svg",
+    "educational_images/v3_06_event_to_stage_ablation.png",
+    "educational_images/v3_06_event_to_stage_ablation.svg",
+    "educational_images/v3_07_remaining_bottlenecks.png",
+    "educational_images/v3_07_remaining_bottlenecks.svg",
+    "educational_images/v3_CREATION_NOTES.md",
+    "educational_images/v3_asset_manifest.json",
+    "educational_images/v3_scientific_fact_check.json",
+    "experiments/__init__.py",
+    "experiments/v3_detector_integration/README.md",
+    "experiments/v3_detector_integration/__init__.py",
+    "experiments/v3_detector_integration/association.py",
+    "experiments/v3_detector_integration/contracts.py",
+    "experiments/v3_detector_integration/overlay.py",
+    "reports/v3_event_detector_evidence.md",
+    "reports/v3_evidence_summary.json",
+    "reports/v3_full_integration_results.md",
+    "reports/v3_limitations_and_negative_results.md",
+    "reports/v3_release_validation.json",
+    "reports/v3_reproducibility.md",
+    "reports/v3_test_results.json",
+    "reports/v3_third_party_license_audit.md",
+    "scripts/audit.py",
+    "scripts/build_v3_public_manifest.py",
+    "scripts/generate_v3_educational_images.py",
+    "scripts/validate_v3_release.py",
+    "tests/test_v3_detector_integration.py"
+  ]
+}

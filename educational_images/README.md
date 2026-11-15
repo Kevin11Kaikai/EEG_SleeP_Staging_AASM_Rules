@@ -1,4 +1,24 @@
-# 三张教学图
+# Educational image gallery
+
+## V3：Event detector research release
+
+|图|内容|可编辑版本|
+|---|---|---|
+|[v3_01_events_to_stages_pass1_pass2.png](v3_01_events_to_stages_pass1_pass2.png)|Legacy main V1 从 PSG/Event/Evidence 到全夜 Pass 1 与仅处理 U 的 Pass 2|[SVG](v3_01_events_to_stages_pass1_pass2.svg)|
+|[v3_02_spindle_yasa_wonambi.png](v3_02_spindle_yasa_wonambi.png)|DREAMS Spindle：YASA vs Wonambi 的 Recall/F1–FP trade-off|[SVG](v3_02_spindle_yasa_wonambi.svg)|
+|[v3_03_kcomplex_mtkcd.png](v3_03_kcomplex_mtkcd.png)|DREAMS K-complex：Morphology vs MT-KCD，以及 HMC B010 负结果|[SVG](v3_03_kcomplex_mtkcd.svg)|
+|[v3_04_arousal_unet.png](v3_04_arousal_unet.png)|PSGScoring Frozen U-Net v1 的输入、预处理、事件化与 PSG-IPA 结果|[SVG](v3_04_arousal_unet.svg)|
+|[v3_05_rem_antiphase.png](v3_05_rem_antiphase.png)|Bilateral EOG AntiPhase 验证与 Precision–Recall trade-off|[SVG](v3_05_rem_antiphase.svg)|
+|[v3_06_event_to_stage_ablation.png](v3_06_event_to_stage_ablation.png)|固定 Temporal R1 下的 A/K/S 八臂实验与四个重点臂|[SVG](v3_06_event_to_stage_ablation.svg)|
+|[v3_07_remaining_bottlenecks.png](v3_07_remaining_bottlenecks.png)|Wake/N3 全 Epoch 可观察失败机制与 Event Truth 边界|[SVG](v3_07_remaining_bottlenecks.svg)|
+
+七图由 [`scripts/generate_v3_educational_images.py`](../scripts/generate_v3_educational_images.py)
+从 [`reports/v3_evidence_summary.json`](../reports/v3_evidence_summary.json) 确定性生成；
+波形均为固定随机种子的合成教学信号，不是患者 PSG。见
+[creation notes](v3_CREATION_NOTES.md) 与
+[scientific fact check](v3_scientific_fact_check.json)。
+
+## V2：原有三张教学图
 
 |图|内容|生成记录|
 |---|---|---|

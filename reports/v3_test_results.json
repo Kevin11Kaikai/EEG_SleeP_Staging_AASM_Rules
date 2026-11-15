@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "release_test_status": "PASS",
+  "executed_utc_date": "2026-11-15",
+  "environments": {
+    "system_python_preflight": {
+      "status": "ENVIRONMENT_INCOMPLETE",
+      "command": "python -m pytest -q",
+      "result": "95 passed, 5 failed in 1.29s",
+      "failure_scope": "All five failures require the unavailable yasa package; no assertion failure was observed.",
+      "scientific_interpretation": "Dependency preflight failure, not a code-regression result."
+    },
+    "verified_frozen_research_environment": {
+      "status": "PASS",
+      "command": "python -m pytest -q",
+      "python": "3.12.14",
+      "packages": {
+        "numpy": "2.5.4",
+        "scipy": "1.18.1",
+        "pytest": "9.2.0",
+        "yasa": "0.6.5"
+      },
+      "result": "100 passed, 22 warnings in 6.39s",
+      "warning_scope": "MNE filter shape deprecations under NumPy 2.5; no test failure."
+    }
+  },
+  "v3_contract_tests": {
+    "status": "PASS",
+    "command": "python -m pytest tests/test_v3_detector_integration.py -q",
+    "result": "6 passed"
+  },
+  "frozen_core_audit": {
+    "status": "PASS",
+    "command": "python scripts/audit.py",
+    "temporal_r1_hash": "c92de5185a049f051df4f8aebd93baa4fcd62b051f9f6de4271642de99951d78",
+    "manifest_files_verified": 123
+  },
+  "independent_aggregate_recheck": {
+    "status": "PASS",
+    "command": "python scripts/recheck_results.py",
+    "aggregate_score_sets_verified": 56,
+    "clinical_rows_read": 0
+  },
+  "release_validator": {
+    "status": "PASS",
+    "command": "python scripts/validate_v3_release.py --write-report",
+    "report": "reports/v3_release_validation.json"
+  },
+  "notes": [
+    "The verified environment is an existing read-only research environment and is not bundled in this branch.",
+    "The test evidence does not claim a fresh raw-EDF end-to-end reproduction."
+  ]
+}

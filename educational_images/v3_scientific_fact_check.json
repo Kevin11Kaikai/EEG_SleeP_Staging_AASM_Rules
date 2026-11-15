@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "numerical_source": "reports/v3_evidence_summary.json",
+  "generator": "scripts/generate_v3_educational_images.py",
+  "figures": {
+    "v3_01_events_to_stages_pass1_pass2": {
+      "source": "remote main src/hmc_sbtb/rules.py at 9dd964c2ecdcd1ab2b305278876598d3bccbc014",
+      "checks": ["pass1 order N3/W/R/N2/N1", "pass2 only unresolved", "no default N1", "V2/R1 semantic boundary"]
+    },
+    "v3_02_spindle_yasa_wonambi": {
+      "source_sha256": "594f754b0fa11b91bf3360f99756d4345ac2128d39d4d184194187d9f50f63c2",
+      "checks": ["expert-specific F1", "expert-specific FP/hour", "synthetic waveform label", "cross-dataset boundary"]
+    },
+    "v3_03_kcomplex_mtkcd": {
+      "source_sha256": "3d5895873b8754ef4363ff3ab1cdfd20c47bb2ea3777e6059f7dba3b1e68ae12",
+      "checks": ["two-expert F1", "two-expert FP/hour", "recall cost", "B010 net -47", "AGPL non-vendoring"]
+    },
+    "v3_04_arousal_unet": {
+      "source_sha256": "15f4272b289d149f519e8a9a1443a2c1f7cb2cbe9faf1fee914e81ae44049170",
+      "checks": ["five nights/12 scorers", "IoU >= 0.2", "no stage gate", "no extra 10-second merge", "60 evaluation-unit boundary"]
+    },
+    "v3_05_rem_antiphase": {
+      "source_sha256": "3a7fb30b412999e35dac8b9608dc7cfd5867e146dd29d902be775b3d6ea26368",
+      "checks": ["precision/recall/F1", "FP/hour", "already present in V2", "synthetic EOG label"]
+    },
+    "v3_06_event_to_stage_ablation": {
+      "source_sha256": "318575b4294f0f8e862c23c52fc54a228dc05f4d062b4f40e5f8baac9925b185",
+      "checks": ["B000/B100/B101/B111 metrics", "best Accuracy B100", "best Macro-F1 B101", "B111 not optimal", "development-set boundary"]
+    },
+    "v3_07_remaining_bottlenecks": {
+      "source_sha256": ["803eed1ced941aea9ca8f936f57592e99565b27a1fe16d3994b969240313494f", "f6f4f9bc7f7008990dcd0e95024298cb3505ce0c5cc7ebafe0d436978a1a3ded"],
+      "checks": ["Wake support/correct/causes", "N3 support/correct/causes", "rule reachability", "event truth undetermined"]
+    }
+  },
+  "privacy": {
+    "real_patient_waveform": false,
+    "patient_identifier": false,
+    "clinical_date": false,
+    "raw_psg": false
+  }
+}

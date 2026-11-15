@@ -1,0 +1,221 @@
+{
+  "schema_version": 1,
+  "release": {
+    "name": "AASM Rule-Based Sleep Staging V3 — Improved Physiological Event Detectors",
+    "branch": "AASM_Rule_V3_Event_Detectors_Improvement",
+    "base_branch": "AASM_Rules_V2",
+    "base_commit": "155baa7895c2a4a20f8a788901f8412c3f8780b3",
+    "legacy_main_commit_verified_for_rule_flow": "9dd964c2ecdcd1ab2b305278876598d3bccbc014",
+    "historical_main_commit_in_v2_reference": "8e973edb85eb4b9a9cadcb3adbb855b484d477c1",
+    "frozen_v2_source_hash": "e47d39fc6f58c8d009af9531f197a66f3d0ce8e28b5b2e37983de1747c121261",
+    "temporal_r1_hash": "c92de5185a049f051df4f8aebd93baa4fcd62b051f9f6de4271642de99951d78",
+    "clinical_claim": false,
+    "scope": "AASM-inspired research implementation; not an AASM-certified clinical system"
+  },
+  "source_artifacts": {
+    "spindle_event_metrics": {
+      "sha256": "594f754b0fa11b91bf3360f99756d4345ac2128d39d4d184194187d9f50f63c2",
+      "bytes": 1064176,
+      "public_content": "aggregate metrics only"
+    },
+    "kcomplex_event_metrics": {
+      "sha256": "3d5895873b8754ef4363ff3ab1cdfd20c47bb2ea3777e6059f7dba3b1e68ae12",
+      "bytes": 2129984,
+      "public_content": "aggregate metrics only"
+    },
+    "arousal_event_metrics": {
+      "sha256": "15f4272b289d149f519e8a9a1443a2c1f7cb2cbe9faf1fee914e81ae44049170",
+      "bytes": 3939052,
+      "public_content": "aggregate metrics only"
+    },
+    "rem_event_metrics": {
+      "sha256": "3a7fb30b412999e35dac8b9608dc7cfd5867e146dd29d902be775b3d6ea26368",
+      "bytes": 3112050,
+      "public_content": "aggregate metrics only"
+    },
+    "hmc_integration_metrics": {
+      "sha256": "318575b4294f0f8e862c23c52fc54a228dc05f4d062b4f40e5f8baac9925b185",
+      "bytes": 31817,
+      "public_content": "pooled aggregate metrics only"
+    },
+    "wake_rule_reachability": {
+      "sha256": "803eed1ced941aea9ca8f936f57592e99565b27a1fe16d3994b969240313494f",
+      "bytes": 1090,
+      "public_content": "aggregate counts only"
+    },
+    "n3_rule_reachability": {
+      "sha256": "f6f4f9bc7f7008990dcd0e95024298cb3505ce0c5cc7ebafe0d436978a1a3ded",
+      "bytes": 644,
+      "public_content": "aggregate counts only"
+    },
+    "arousal_reliability_v2_summary": {
+      "sha256": "1c4f41fbb6c8bd9763c0065a64aab17383b2066d7c57b96407fe8f5b2f99a335",
+      "bytes": 14608,
+      "public_content": "aggregate negative-result summary only"
+    },
+    "sleepfm_summary": {
+      "sha256": "a84300aff5a65b6e7e22f3c09f81d37b8daece3c30bb203f42b297f894355ce4",
+      "bytes": 1975,
+      "public_content": "aggregate negative-result summary only"
+    }
+  },
+  "event_benchmarks": {
+    "spindle": {
+      "dataset": "DREAMS Sleep Spindles",
+      "matching": "one-to-one, event IoU >= 0.2, expert-specific valid masks",
+      "methods": {
+        "YASA_V1_compatible": {
+          "expert_1": {"tp": 105, "fp": 22, "fn": 250, "precision": 0.8267716535433071, "recall": 0.29577464788732394, "f1": 0.43568464730290457, "fp_per_valid_hour": 9.9},
+          "expert_2": {"tp": 104, "fp": 45, "fn": 305, "precision": 0.697986577181208, "recall": 0.254278728606357, "f1": 0.3727598566308244, "fp_per_valid_hour": 15.0}
+        },
+        "Wonambi_Moelle2011_blind": {
+          "expert_1": {"tp": 191, "fp": 114, "fn": 164, "precision": 0.6262295081967213, "recall": 0.5380281690140845, "f1": 0.5787878787878787, "fp_per_valid_hour": 51.3},
+          "expert_2": {"tp": 278, "fp": 158, "fn": 131, "precision": 0.6376146788990825, "recall": 0.6797066014669927, "f1": 0.6579881656804734, "fp_per_valid_hour": 52.666666666666664}
+        }
+      },
+      "interpretation": "Wonambi increased recall and F1 for both experts, with substantially more unmatched proposals per valid hour."
+    },
+    "kcomplex": {
+      "dataset": "DREAMS K-complex",
+      "matching": "one-to-one, event IoU >= 0.2, expert-specific valid masks",
+      "methods": {
+        "Frozen_morphology_Cz_adapted": {
+          "expert_1": {"tp": 228, "fp": 1049, "fn": 44, "precision": 0.17854346123727485, "recall": 0.8382352941176471, "f1": 0.2943834732085216, "fp_per_valid_hour": 209.8},
+          "expert_2": {"tp": 59, "fp": 747, "fn": 5, "precision": 0.07320099255583126, "recall": 0.921875, "f1": 0.135632183908046, "fp_per_valid_hour": 298.8}
+        },
+        "ScoringHero_MT_KCD": {
+          "expert_1": {"tp": 215, "fp": 447, "fn": 57, "precision": 0.324773413897281, "recall": 0.7904411764705882, "f1": 0.4603854389721627, "fp_per_valid_hour": 89.4},
+          "expert_2": {"tp": 50, "fp": 297, "fn": 14, "precision": 0.1440922190201729, "recall": 0.78125, "f1": 0.24330900243309003, "fp_per_valid_hour": 118.8}
+        }
+      },
+      "interpretation": "MT-KCD improved precision/F1 and reduced FP/hour, while recall decreased."
+    },
+    "arousal": {
+      "dataset": "PSG-IPA, five nights, 12 scorers",
+      "matching": "one-to-one, event IoU >= 0.2, 60 scorer-record evaluation units",
+      "protocol": {
+        "stage_gate": false,
+        "extra_10_second_merge": false,
+        "fine_tuning": false,
+        "input": "EEG + EOG + Chin EMG at 50 Hz",
+        "threshold": 0.35,
+        "smoothing_seconds": 1,
+        "gap_merge_seconds": 1,
+        "minimum_duration_seconds": 3
+      },
+      "methods": {
+        "Frozen_Enhanced": {"unique_candidates": 545, "tp": 498, "fp": 5994, "fn": 6835, "precision": 0.0767097966728281, "recall": 0.06791217782626482, "f1": 0.07204339963833634, "fp_per_valid_hour": 12.773684646836601},
+        "PSGScoring_UNetV1_UngatedProposal": {"unique_candidates": 536, "evaluable_unique_candidates": 507, "tp": 4252, "fp": 1832, "fn": 3081, "precision": 0.6988823142669297, "recall": 0.5798445383881086, "f1": 0.6338227621673996, "fp_per_valid_hour": 3.904135848015458}
+      },
+      "source": {
+        "repository": "bartromb/psgscoring",
+        "commit": "7271cb089feacb585332ed0db8a375019548702d",
+        "onnx_sha256": "6fbea2857567f95023e6dd34461fba92cab238c9c334dbe9d66494b258aa715f"
+      },
+      "interpretation": "An event-proposal improvement on five same-centre nights; not a complete clinical inference pipeline or external validation."
+    },
+    "rem": {
+      "dataset": "DREAMS REM, nine excerpts",
+      "matching": "one-to-one, event IoU >= 0.2",
+      "methods": {
+        "Frozen_YASA_REM": {"tp": 364, "fp": 381, "fn": 476, "precision": 0.4885906040268456, "recall": 0.43333333333333335, "f1": 0.45930599369085173, "fp_per_valid_hour": 86.26415094339622},
+        "Frozen_YASA_AntiPhase": {"tp": 351, "fp": 287, "fn": 489, "precision": 0.5501567398119123, "recall": 0.41785714285714287, "f1": 0.4749661705006766, "fp_per_valid_hour": 64.98113207547169}
+      },
+      "interpretation": "AntiPhase increased precision/F1 and reduced FP/hour with a small recall loss; it already exists in Enhanced V2 and is not a new V3 detector."
+    }
+  },
+  "hmc_integration": {
+    "dataset": "HMC development SN001-SN010",
+    "primary_epochs": 8902,
+    "full_valid_epochs": 9211,
+    "prediction_epochs_per_arm": 9212,
+    "status": "sealed-event-bank integration computation completed; fresh raw-EDF end-to-end reproduction not established",
+    "arms": {
+      "B000": {"A": false, "K": false, "S": false, "accuracy": 0.5199955066277241, "macro_f1": 0.40081488140174376, "kappa": 0.29216626389243583, "coverage": 0.9939339474275444},
+      "B100": {"A": true, "K": false, "S": false, "accuracy": 0.5387553358795776, "macro_f1": 0.43142418743740346, "kappa": 0.333396203487674, "coverage": 0.9938216131206471},
+      "B010": {"A": false, "K": true, "S": false, "accuracy": 0.5147157942035497, "macro_f1": 0.3904783925509648, "kappa": 0.2781053712470377, "coverage": 0.994158616041339},
+      "B001": {"A": false, "K": false, "S": true, "accuracy": 0.5254998876656931, "macro_f1": 0.40483102227466405, "kappa": 0.29772995728675117, "coverage": 0.9943832846551337},
+      "B110": {"A": true, "K": true, "S": false, "accuracy": 0.5341496292967872, "macro_f1": 0.4227530930968853, "kappa": 0.3174488736460593, "coverage": 0.9939339474275444},
+      "B101": {"A": true, "K": false, "S": true, "accuracy": 0.537856661424399, "macro_f1": 0.43162336969787657, "kappa": 0.33037035650124796, "coverage": 0.9939339474275444},
+      "B011": {"A": false, "K": true, "S": true, "accuracy": 0.5225791956863626, "macro_f1": 0.39638373687223527, "kappa": 0.28635241588386157, "coverage": 0.9939339474275444},
+      "B111": {"A": true, "K": true, "S": true, "accuracy": 0.5367333183554257, "macro_f1": 0.42541508614141693, "kappa": 0.3188312489647767, "coverage": 0.9939339474275444}
+    },
+    "historical_controls": {
+      "Frozen_V1": {"accuracy": 0.54909, "macro_f1": 0.368825, "kappa": 0.301538},
+      "Frozen_V3": {"accuracy": 0.490002, "macro_f1": 0.396051, "kappa": 0.268743},
+      "Temporal_R1": {"accuracy": 0.5199955066277241, "macro_f1": 0.40081488140174376, "kappa": 0.29216626389243583}
+    },
+    "per_stage_primary": {
+      "B000": {
+        "W": {"precision": 0.9714285714285714, "recall": 0.05782312925170068, "f1": 0.10914927768860352, "support": 1176},
+        "N1": {"precision": 0.21298701298701297, "recall": 0.24308300395256918, "f1": 0.22704199353945548, "support": 1012},
+        "N2": {"precision": 0.5070886910649522, "recall": 0.8551570753405616, "f1": 0.6366552830383939, "support": 3597},
+        "N3": {"precision": 0.6512820512820513, "recall": 0.24837027379400262, "f1": 0.3596035865974516, "support": 1534},
+        "R": {"precision": 0.8827160493827161, "recall": 0.542008843967151, "f1": 0.6716242661448141, "support": 1583}
+      },
+      "B111": {
+        "W": {"precision": 0.9714285714285714, "recall": 0.05782312925170068, "f1": 0.10914927768860352, "support": 1176},
+        "N1": {"precision": 0.3250965250965251, "recall": 0.4160079051383399, "f1": 0.364976159514521, "support": 1012},
+        "N2": {"precision": 0.5167551426675514, "recall": 0.8659994439810954, "f1": 0.6472727272727272, "support": 3597},
+        "N3": {"precision": 0.6472602739726028, "recall": 0.24641460234680573, "f1": 0.3569405099150142, "support": 1534},
+        "R": {"precision": 0.9138920780711826, "recall": 0.5028427037271005, "f1": 0.6487367563162185, "support": 1583}
+      }
+    },
+    "paired_vs_b000": {
+      "B100": {"corrected": 510, "introduced": 343, "net": 167, "rule_changed": 2858, "evidence_ids_changed": 3324},
+      "B010": {"corrected": 245, "introduced": 292, "net": -47, "rule_changed": 1685, "evidence_ids_changed": 5386},
+      "B001": {"corrected": 214, "introduced": 165, "net": 49, "rule_changed": 1122, "evidence_ids_changed": 4584},
+      "B111": {"corrected": 708, "introduced": 559, "net": 149, "rule_changed": 3955, "evidence_ids_changed": 6975}
+    },
+    "event_counts": {
+      "arousal": {"frozen": 1146, "replacement": 1232, "delta": 86, "raw_unet": 1264, "qc_rejected": 32},
+      "kcomplex": {"frozen": 13719, "replacement": 7613, "delta": -6106},
+      "spindle": {"frozen": 6075, "replacement": 15718, "delta": 9643}
+    },
+    "known_engineering_failures": {
+      "fresh_sn001_base_detection": "no result after 8352 seconds",
+      "historical_strict_isolation": "SN011-SN154 directory names/metadata were enumerated once; no case content or labels were read"
+    }
+  },
+  "wake_n3_audit": {
+    "status": "MIXED_FAILURE_MECHANISMS / EVENT_TRUTH_UNDETERMINED",
+    "wake": {
+      "reference_support": 1176,
+      "correct": 68,
+      "errors": 1108,
+      "recall": 0.05782312925170068,
+      "rule_reachability": {"W.1_alpha": 65, "W.2_blink": 0, "W.3_ocular_emg": 5, "any": 70},
+      "primary_failure_causes": {"signal_qc_blocked": 28, "no_observed_positive_candidate": 401, "insufficient_duration_or_predicate": 677, "rule_priority_conflict": 2}
+    },
+    "n3": {
+      "reference_support": 1534,
+      "correct": 381,
+      "errors": 1153,
+      "recall": 0.24837027379400262,
+      "n3_predicate_true": 378,
+      "n3_true_but_final_not_n3": 0,
+      "primary_failure_causes": {"no_observed_slow_wave_candidate": 281, "positive_coverage_below_6_seconds": 872}
+    },
+    "event_truth_boundary": "Stage labels are not expert event labels; detector false negatives are not confirmed."
+  },
+  "negative_results": {
+    "arousal_reliability_v2": {
+      "status": "CALIBRATION_NOT_ESTABLISHED / RECALL_PRESERVING_GAIN_NOT_ESTABLISHED",
+      "accept_all_f1": 0.6338227621673996,
+      "main_selective_f1": 0.6166341272940258,
+      "main_selective_tp_retention": 0.9285042333019755
+    },
+    "sleepfm_reliability": {
+      "status": "NO_ADDED_VALUE_FROM_FROZEN_SLEEPFM",
+      "native_brier": 0.08969766766207701,
+      "sleepfm_plus_native_brier": 0.09904900844800164,
+      "sleepfm_only_brier": 0.10430374020201445,
+      "native_policy_f1": 0.6205457215737805,
+      "sleepfm_plus_native_policy_f1": 0.6110626140782478
+    }
+  },
+  "public_release_boundary": {
+    "included": ["aggregate metrics", "synthetic educational figures", "deterministic overlay contracts", "synthetic tests", "provenance hashes"],
+    "excluded": ["raw PSG/EDF", "scoring labels", "patient-level event files", "epoch predictions", "clinical waveforms", "detailed traces", "model weights", "third-party source trees", "private absolute paths"]
+  }
+}
