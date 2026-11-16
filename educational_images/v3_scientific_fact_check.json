@@ -1,8 +1,16 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "PASS",
   "numerical_source": "reports/v3_evidence_summary.json",
+  "numerical_source_sha256": "64d6bcd3de710bd309d92f3835d973900b3ee538a738a5280385eb9fec92f98f",
   "generator": "scripts/generate_v3_educational_images.py",
+  "visual_contract": {
+    "png_pixels": [1800, 2400],
+    "aspect_ratio": "3:4 portrait",
+    "font": "Microsoft YaHei",
+    "synthetic_waveform_figures": ["02", "03", "04", "05"],
+    "real_patient_waveforms": false
+  },
   "figures": {
     "v3_01_events_to_stages_pass1_pass2": {
       "source": "remote main src/hmc_sbtb/rules.py at 9dd964c2ecdcd1ab2b305278876598d3bccbc014",
@@ -30,7 +38,7 @@
     },
     "v3_07_remaining_bottlenecks": {
       "source_sha256": ["803eed1ced941aea9ca8f936f57592e99565b27a1fe16d3994b969240313494f", "f6f4f9bc7f7008990dcd0e95024298cb3505ce0c5cc7ebafe0d436978a1a3ded"],
-      "checks": ["Wake support/correct/causes", "N3 support/correct/causes", "rule reachability", "event truth undetermined"]
+      "checks": ["Wake support/correct/causes", "N3 support/correct/causes", "rule reachability", "Temporal R1 N3.1 uses >= 6 seconds", "event truth undetermined"]
     }
   },
   "privacy": {
@@ -38,5 +46,11 @@
     "patient_identifier": false,
     "clinical_date": false,
     "raw_psg": false
+  },
+  "render_review": {
+    "native_1800x2400": "PASS",
+    "readme_800px": "PASS",
+    "targeted_detail_crops": "PASS",
+    "images_reviewed": 7
   }
 }

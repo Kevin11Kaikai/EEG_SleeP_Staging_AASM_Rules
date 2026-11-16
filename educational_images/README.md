@@ -14,8 +14,11 @@
 
 七图由 [`scripts/generate_v3_educational_images.py`](../scripts/generate_v3_educational_images.py)
 从 [`reports/v3_evidence_summary.json`](../reports/v3_evidence_summary.json) 确定性生成；
-波形均为固定随机种子的合成教学信号，不是患者 PSG。见
-[creation notes](v3_CREATION_NOTES.md) 与
+采用 1800×2400 的 3:4 纵向中文科研教学海报合同；波形均为固定随机种子的合成教学
+信号，不是患者 PSG。见 [visual design spec](v3_visual_design_spec.md)、
+[creation notes](v3_CREATION_NOTES.md)、
+[rendered visual QA](v3_visual_quality_audit.md)、
+[before/after review](v3_visual_before_after_review.md) 与
 [scientific fact check](v3_scientific_fact_check.json)。
 
 ## V2：原有三张教学图

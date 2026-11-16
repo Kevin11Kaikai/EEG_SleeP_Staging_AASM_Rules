@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_utc": "2026-11-15T19:42:07.927846+00:00",
+  "generated_utc": "2026-11-16T02:23:37.568140+00:00",
   "status": "PASS",
   "branch": "AASM_Rule_V3_Event_Detectors_Improvement",
   "base_commit": "155baa7895c2a4a20f8a788901f8412c3f8780b3",
@@ -21,6 +21,11 @@
       "detail": 0
     },
     {
+      "name": "sealed_evidence_json_unchanged",
+      "status": "PASS",
+      "detail": "64d6bcd3de710bd309d92f3835d973900b3ee538a738a5280385eb9fec92f98f"
+    },
+    {
       "name": "scientific_metric_assertions",
       "status": "PASS",
       "detail": {
@@ -36,7 +41,7 @@
     {
       "name": "seven_png_and_svg_pairs",
       "status": "PASS",
-      "detail": "7/7 valid at 2560x1440"
+      "detail": "7/7 valid at 1800x2400 with 3:4 portrait SVG pairs"
     },
     {
       "name": "synthetic_waveform_labels",
@@ -46,6 +51,33 @@
         "v3_03_kcomplex_mtkcd": true,
         "v3_04_arousal_unet": true,
         "v3_05_rem_antiphase": true
+      }
+    },
+    {
+      "name": "rendered_scientific_text_contract",
+      "status": "PASS",
+      "detail": {
+        "v3_01_events_to_stages_pass1_pass2": true,
+        "v3_02_spindle_yasa_wonambi": true,
+        "v3_03_kcomplex_mtkcd": true,
+        "v3_04_arousal_unet": true,
+        "v3_05_rem_antiphase": true,
+        "v3_06_event_to_stage_ablation": true,
+        "v3_07_remaining_bottlenecks": true
+      }
+    },
+    {
+      "name": "portrait_font_and_source_contract",
+      "status": "PASS",
+      "detail": "1800x2400; Microsoft YaHei fail-fast; metrics loaded from evidence JSON"
+    },
+    {
+      "name": "human_visual_audit_record",
+      "status": "PASS",
+      "detail": {
+        "overall_pass": true,
+        "all_figures_listed": true,
+        "three_view_contract": true
       }
     },
     {
@@ -66,7 +98,7 @@
     {
       "name": "publication_privacy_and_size",
       "status": "PASS",
-      "detail": "40 changed files scanned"
+      "detail": "25 changed files scanned"
     },
     {
       "name": "public_manifest_integrity",
@@ -76,14 +108,12 @@
     {
       "name": "v3_contract_tests",
       "status": "PASS",
-      "detail": "......                                                                   [100%]\n6 passed in 0.03s"
+      "detail": "......                                                                   [100%]\n6 passed in 0.02s"
     }
   ],
   "failed_checks": [],
   "changed_files_scanned": [
-    ".gitignore",
     "PUBLIC_MANIFEST.json",
-    "README.md",
     "educational_images/README.md",
     "educational_images/v3_01_events_to_stages_pass1_pass2.png",
     "educational_images/v3_01_events_to_stages_pass1_pass2.svg",
@@ -102,24 +132,11 @@
     "educational_images/v3_CREATION_NOTES.md",
     "educational_images/v3_asset_manifest.json",
     "educational_images/v3_scientific_fact_check.json",
-    "experiments/__init__.py",
-    "experiments/v3_detector_integration/README.md",
-    "experiments/v3_detector_integration/__init__.py",
-    "experiments/v3_detector_integration/association.py",
-    "experiments/v3_detector_integration/contracts.py",
-    "experiments/v3_detector_integration/overlay.py",
-    "reports/v3_event_detector_evidence.md",
-    "reports/v3_evidence_summary.json",
-    "reports/v3_full_integration_results.md",
-    "reports/v3_limitations_and_negative_results.md",
+    "educational_images/v3_visual_before_after_review.md",
+    "educational_images/v3_visual_design_spec.md",
+    "educational_images/v3_visual_quality_audit.md",
     "reports/v3_release_validation.json",
-    "reports/v3_reproducibility.md",
-    "reports/v3_test_results.json",
-    "reports/v3_third_party_license_audit.md",
-    "scripts/audit.py",
-    "scripts/build_v3_public_manifest.py",
     "scripts/generate_v3_educational_images.py",
-    "scripts/validate_v3_release.py",
-    "tests/test_v3_detector_integration.py"
+    "scripts/validate_v3_release.py"
   ]
 }

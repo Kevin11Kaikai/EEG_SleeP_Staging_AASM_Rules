@@ -17,6 +17,9 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 BASE_COMMIT = "155baa7895c2a4a20f8a788901f8412c3f8780b3"
 TARGET_BRANCH = "AASM_Rule_V3_Event_Detectors_Improvement"
+PNG_SIZE = (1800, 2400)
+SVG_VIEWBOX = "0 0 864 1152"
+EVIDENCE_SHA256 = "64d6bcd3de710bd309d92f3835d973900b3ee538a738a5280385eb9fec92f98f"
 STEMS = [
     "v3_01_events_to_stages_pass1_pass2",
     "v3_02_spindle_yasa_wonambi",
@@ -30,6 +33,9 @@ NEW_MARKDOWN = [
     Path("README.md"),
     Path("educational_images/README.md"),
     Path("educational_images/v3_CREATION_NOTES.md"),
+    Path("educational_images/v3_visual_design_spec.md"),
+    Path("educational_images/v3_visual_quality_audit.md"),
+    Path("educational_images/v3_visual_before_after_review.md"),
     Path("experiments/v3_detector_integration/README.md"),
     Path("reports/v3_event_detector_evidence.md"),
     Path("reports/v3_full_integration_results.md"),
@@ -149,6 +155,12 @@ def validate() -> tuple[dict[str, Any], dict[str, Any]]:
 
     evidence_path = ROOT / "reports" / "v3_evidence_summary.json"
     evidence = json.loads(evidence_path.read_text(encoding="utf-8"))
+    add(
+        checks,
+        "sealed_evidence_json_unchanged",
+        sha256(evidence_path) == EVIDENCE_SHA256,
+        sha256(evidence_path),
+    )
     arms = evidence["hmc_integration"]["arms"]
     scientific_assertions = {
         "eight_arms": len(arms) == 8,
@@ -187,8 +199,14 @@ def validate() -> tuple[dict[str, Any], dict[str, Any]]:
             svg_text = svg.read_text(encoding="utf-8")
             if "<svg" not in svg_text:
                 image_errors.append(f"{stem}: invalid SVG")
-            if (width, height) != (2560, 1440):
+            if (width, height) != PNG_SIZE:
                 image_errors.append(f"{stem}: PNG is {width}x{height}")
+            if width >= height or width / height != 0.75:
+                image_errors.append(f"{stem}: PNG is not 3:4 portrait")
+            if f'viewBox="{SVG_VIEWBOX}"' not in svg_text:
+                image_errors.append(
+                    f"{stem}: SVG viewBox does not match portrait contract"
+                )
             image_manifest["assets"][stem] = {
                 "png": {
                     "sha256": sha256(png),
@@ -204,11 +222,11 @@ def validate() -> tuple[dict[str, Any], dict[str, Any]]:
         checks,
         "seven_png_and_svg_pairs",
         not image_errors,
-        image_errors or "7/7 valid at 2560x1440",
+        image_errors or "7/7 valid at 1800x2400 with 3:4 portrait SVG pairs",
     )
 
     synthetic_labels = {
-        stem: "not clinical PSG"
+        stem: "合成教学波形 · 非临床 PSG"
         in (ROOT / "educational_images" / f"{stem}.svg").read_text(encoding="utf-8")
         for stem in STEMS[1:5]
     }
@@ -217,6 +235,93 @@ def validate() -> tuple[dict[str, Any], dict[str, Any]]:
         "synthetic_waveform_labels",
         all(synthetic_labels.values()),
         synthetic_labels,
+    )
+
+    figure_tokens = {
+        STEMS[0]: [
+            "N3  →  Wake  →  REM  →  N2  →  N1",
+            "仅 unresolved epochs 进入 Pass 2",
+            "UNDETERMINED (U)",
+        ],
+        STEMS[1]: ["0.5788", "0.6580", "9.9", "51.3", "15.0", "52.67"],
+        STEMS[2]: ["0.2944", "0.4604", "0.1356", "0.2433", "209.8", "89.4", "net -47"],
+        STEMS[3]: [
+            "0.6989",
+            "0.5798",
+            "0.6338",
+            "12.77",
+            "3.90",
+            "60 scorer-record comparisons",
+        ],
+        STEMS[4]: [
+            "0.4593",
+            "0.4750",
+            "86.26",
+            "64.98",
+            "0.4333",
+            "0.4179",
+            "AntiPhase 已存在于 Enhanced V2",
+        ],
+        STEMS[5]: ["B000", "B100", "B101", "B111", "0.5388", "0.4316", "net -47"],
+        STEMS[6]: [
+            "1,176 epochs",
+            "68 epochs",
+            "5.78%",
+            "1,534 epochs",
+            "381 epochs",
+            "24.84%",
+            "N3.1 rule-positive: ≥ 6 s",
+            "Stage error  ≠  Event detector false negative",
+        ],
+    }
+    token_results: dict[str, bool] = {}
+    for stem, tokens in figure_tokens.items():
+        svg_text = (ROOT / "educational_images" / f"{stem}.svg").read_text(
+            encoding="utf-8"
+        )
+        token_results[stem] = all(token in svg_text for token in tokens)
+    add(
+        checks,
+        "rendered_scientific_text_contract",
+        all(token_results.values()),
+        token_results,
+    )
+
+    generator_text = (ROOT / "scripts" / "generate_v3_educational_images.py").read_text(
+        encoding="utf-8"
+    )
+    add(
+        checks,
+        "portrait_font_and_source_contract",
+        all(
+            token in generator_text
+            for token in (
+                "PNG_SIZE = (1800, 2400)",
+                'FONT_NAME = "Microsoft YaHei"',
+                "data = load_evidence()",
+            )
+        ),
+        "1800x2400; Microsoft YaHei fail-fast; metrics loaded from evidence JSON",
+    )
+
+    visual_audit_path = ROOT / "educational_images" / "v3_visual_quality_audit.md"
+    visual_audit_text = (
+        visual_audit_path.read_text(encoding="utf-8")
+        if visual_audit_path.exists()
+        else ""
+    )
+    visual_audit_checks = {
+        "overall_pass": "Overall: PASS" in visual_audit_text,
+        "all_figures_listed": all(stem in visual_audit_text for stem in STEMS),
+        "three_view_contract": all(
+            token in visual_audit_text for token in ("1800×2400", "800 px", "局部放大")
+        ),
+    }
+    add(
+        checks,
+        "human_visual_audit_record",
+        all(visual_audit_checks.values()),
+        visual_audit_checks,
     )
 
     link_errors = [error for path in NEW_MARKDOWN for error in check_links(path)]

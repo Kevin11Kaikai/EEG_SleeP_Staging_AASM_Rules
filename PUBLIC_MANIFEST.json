@@ -1,14 +1,14 @@
 {
   "schema_version": 3,
-  "created_utc": "2026-11-15T19:42:09.349074+00:00",
+  "created_utc": "2026-11-16T02:23:42.240898+00:00",
   "branch": "AASM_Rule_V3_Event_Detectors_Improvement",
   "base_branch": "AASM_Rules_V2",
   "base_commit": "155baa7895c2a4a20f8a788901f8412c3f8780b3",
   "status": "V3_RESEARCH_RELEASE_CANDIDATE",
   "raw_or_epoch_clinical_content_included": false,
   "frozen_core_or_configs_modified": false,
-  "file_count_excluding_manifest": 124,
-  "bytes_excluding_manifest": 9749057,
+  "file_count_excluding_manifest": 127,
+  "bytes_excluding_manifest": 11045699,
   "release_scope": {
     "included": [
       "aggregate metrics",
@@ -133,8 +133,8 @@
       "bytes": 163
     },
     "educational_images/README.md": {
-      "sha256": "b85e4cd96ae22c4620d73a0bf8894f26b2bc8a2ab255461a1ca73005b2cdb75d",
-      "bytes": 3863
+      "sha256": "df5ce2b03fc2a20423ff7e78998a9fbb6169fa9343ad3e047eac690cb479ed9b",
+      "bytes": 4090
     },
     "educational_images/generation_record.json": {
       "sha256": "e49c8b22b831e9ddd65a08d556c14333cb8d85bdaa6ce36f223fe678ec0c4f65",
@@ -185,72 +185,84 @@
       "bytes": 6364
     },
     "educational_images/v3_01_events_to_stages_pass1_pass2.png": {
-      "sha256": "4404717abe4715a3c353fbfcc736ae84772820c8f94e6a864785929ca45b9cc8",
-      "bytes": 281550
+      "sha256": "0cbbb8162c36aff9d0c75c7c26e16dbc3bfdb22bf9aad865ff84083b12f99489",
+      "bytes": 411909
     },
     "educational_images/v3_01_events_to_stages_pass1_pass2.svg": {
-      "sha256": "30ca871df56986f5ed3ee5393ed22b4ecb49c9b707654da263441111b4aec81b",
-      "bytes": 109626
+      "sha256": "8204a3a2cc36bac53a09b4b97515bbc25e529e9f2a247abc7d8ef1e45b149cf8",
+      "bytes": 239894
     },
     "educational_images/v3_02_spindle_yasa_wonambi.png": {
-      "sha256": "1268b25285a649c1e2ba051ff79f6bed3eeab6abeb43d465e1636ef817127834",
-      "bytes": 320589
+      "sha256": "3da7bbb365bf51599d858ee8f76538df3d8bcd6adee5ebaf8611be9719ffb0ff",
+      "bytes": 359445
     },
     "educational_images/v3_02_spindle_yasa_wonambi.svg": {
-      "sha256": "42a263ce6bc2313f308ac0356a730bc993d1885e838a5fd1f3e592636fcd1dd6",
-      "bytes": 147368
+      "sha256": "5645939b962b630fc304a635178441d65f3f9a2accaf3cdeedef020a5249e236",
+      "bytes": 231866
     },
     "educational_images/v3_03_kcomplex_mtkcd.png": {
-      "sha256": "fb51c529af3401f4f2f54d1ee06584139949baaf0117a2597c5a3915b00f9305",
-      "bytes": 314990
+      "sha256": "3e8a78ce1ae01ca0832631ef1a62554cf8b4e07a2f4d262d7e2adb5cf376de8d",
+      "bytes": 311147
     },
     "educational_images/v3_03_kcomplex_mtkcd.svg": {
-      "sha256": "c49b1ed1aff185385407cd10f9b4fcc0dd241bfd1043c762b4d74d1085631d1f",
-      "bytes": 150340
+      "sha256": "5b41fdd55ae53b1facfa0cb3d498118fae5160d0a6d5b70d3b0cc8b2140488a0",
+      "bytes": 204174
     },
     "educational_images/v3_04_arousal_unet.png": {
-      "sha256": "08b2d8d2037ecd88a3db5410905ff6b796ba7a04012cfc81f1e6d5ce0ca0ca8e",
-      "bytes": 326991
+      "sha256": "9ae72fe7eda40482fe910aac7ba6c4464f341f3176f8a3ebc8fda1c114ae77fb",
+      "bytes": 449368
     },
     "educational_images/v3_04_arousal_unet.svg": {
-      "sha256": "fd96d8029fdfd3c55a64450ac7d5cd5e7faa13930e993e6d68645d86e3655c0a",
-      "bytes": 183976
+      "sha256": "91be364bb5d0817b767280511bcf32f4d4a05aca6738c68dba39b5316fc90f4e",
+      "bytes": 308947
     },
     "educational_images/v3_05_rem_antiphase.png": {
-      "sha256": "b7a9952982a85b1d252b8c84994a1030c4e89b205d9e3fa2792b7e6bfa006cdd",
-      "bytes": 279445
+      "sha256": "7fca1f4169cd9e21fcafe18c420bc18f7eb1638bae6efa5753f2d1b8e755fd08",
+      "bytes": 354782
     },
     "educational_images/v3_05_rem_antiphase.svg": {
-      "sha256": "3fbb46db0709783bcde9b005ed5a587573703125dc7d0942e3d56e13d0495549",
-      "bytes": 159999
+      "sha256": "c7d5fb44d0cdb1ebdb1decf5047efb26a9ff00aa55c62ecd614a945ef1164b1c",
+      "bytes": 250226
     },
     "educational_images/v3_06_event_to_stage_ablation.png": {
-      "sha256": "aaab94210fb747a89a00e5d01a65b7d63b697b79f7e0f7aabae2a3058717dd88",
-      "bytes": 231355
+      "sha256": "4e20fb520f0834c7276321dc201d3cf808f20023156bf3c028672e0446928004",
+      "bytes": 343273
     },
     "educational_images/v3_06_event_to_stage_ablation.svg": {
-      "sha256": "40968258a8a2bb3d0af7fc52b88efed2b3a2b512e27a1a029024d793b3f54101",
-      "bytes": 100664
+      "sha256": "edd6b6844aae5833b5612d68a1288ab14f1d6261aacccd53a1f9a560c2434681",
+      "bytes": 207160
     },
     "educational_images/v3_07_remaining_bottlenecks.png": {
-      "sha256": "54429e8d7c5724d939ecf3846dcc50984b8c5e78dad89e503187e11146f79265",
-      "bytes": 243681
+      "sha256": "75f9f13ead428bed939afdfe8ae6cc9beab90fccc07cfab44336f39cce90367c",
+      "bytes": 342343
     },
     "educational_images/v3_07_remaining_bottlenecks.svg": {
-      "sha256": "e95bfeeb8ed2c55ade53842a323ac0fdf5af3bf1b1da01baf4243da088da2992",
-      "bytes": 111617
+      "sha256": "4fa79891b49c318872b8d1de381be4cda4e7d18b2827ae3afae2f5107f7a334c",
+      "bytes": 199540
     },
     "educational_images/v3_CREATION_NOTES.md": {
-      "sha256": "05b21a14affcdc2a31153fbe61b502b74a151a3179bca2a8d9b92a7bc3e0b586",
-      "bytes": 2209
+      "sha256": "e1b301ea47b0f7815d6d2b6f0982a7aa6f8fdec0592d7f45fd36bfdb8a72ecb7",
+      "bytes": 2815
     },
     "educational_images/v3_asset_manifest.json": {
-      "sha256": "a2446b7bb0dc3ddbdf992af1ee43db545468c6f33065ff43b86dcadb371e2acc",
+      "sha256": "7ea5e4fdc2b7ac07ce074fc5bc97f42c4f359df45a8673fbd86870d7fcc8525f",
       "bytes": 2534
     },
     "educational_images/v3_scientific_fact_check.json": {
-      "sha256": "aed0ccd041164e6b668905e1db28d6c15dbb783c52709f6d9d3469d9bb59e49f",
-      "bytes": 2167
+      "sha256": "9eacc96adcbba323f22f55aefe1bab021983d6d31729203552c36be774f2774b",
+      "bytes": 2673
+    },
+    "educational_images/v3_visual_before_after_review.md": {
+      "sha256": "e09400d4eda0463914ba96b4bd9b40b109a9fe8e64d86202d4fe54e9392e6758",
+      "bytes": 2243
+    },
+    "educational_images/v3_visual_design_spec.md": {
+      "sha256": "92bafaaa7141430e9de53874ada439091184e58ce7711e8f751dd5d887cac638",
+      "bytes": 5327
+    },
+    "educational_images/v3_visual_quality_audit.md": {
+      "sha256": "1d21e550b2ff037d1d833282ea351f43bcf01f7a50693cd5517784538dc5a113",
+      "bytes": 2968
     },
     "experiments/__init__.py": {
       "sha256": "07d2d054a2f91927f631ada3c9564096ef793a41aa72cd8c80d26bfc8a168a49",
@@ -337,8 +349,8 @@
       "bytes": 4370
     },
     "reports/v3_release_validation.json": {
-      "sha256": "e9b35cca6ca84d6295dbf000572d96be5e1534724a56da74dcd6689cec8251dc",
-      "bytes": 4127
+      "sha256": "1cc94f3def52c953e9078ab797a6c2b7d7459d6284db08dc41c565889da1a985",
+      "bytes": 4525
     },
     "reports/v3_reproducibility.md": {
       "sha256": "3219361b9ab4ebc74e82e2dd1f4a2b94f58bbfe0d0dcbba8565adb49f5d9bbf5",
@@ -449,8 +461,8 @@
       "bytes": 5314
     },
     "scripts/generate_v3_educational_images.py": {
-      "sha256": "073f5ef72f7753b3b567d2473d0d2616f380f5452c49040f46c419a68c63919b",
-      "bytes": 26608
+      "sha256": "7abd945f556e9e2bb23f81848c2a82e168d2656e9c6a88690d4a6aafe649c4e1",
+      "bytes": 55527
     },
     "scripts/predict.py": {
       "sha256": "be96b134ecb88333afd628b2e1375cb44aaba72fba9932fab139a4b741dec392",
@@ -461,8 +473,8 @@
       "bytes": 1007
     },
     "scripts/validate_v3_release.py": {
-      "sha256": "a62c0af6a7d45b48825d79ae111d15d727f24de79f075fec6876f9ed0aad72cb",
-      "bytes": 12851
+      "sha256": "a458d04b291cd9d35f0c8cc960e564dd9d8076de92bdd021fef25819d939381e",
+      "bytes": 16416
     },
     "src/aasm_temporal_r1/__init__.py": {
       "sha256": "fcf2ca10bef2e517f7f820d1c408b399d96fbf430380e59f16abdbca4d6bfde7",
