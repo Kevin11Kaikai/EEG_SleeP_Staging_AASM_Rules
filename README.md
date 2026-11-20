@@ -142,6 +142,12 @@ python -m pytest tests/v4 -q
 也不会声称从 Raw PSG 复现患者级结果。需要完整封存数据和权重的受控 replay 入口保留在
 实验模块中，使用者必须自行取得合法数据与第三方模型。
 
+规则级聚合诊断已单独发布在
+[results/release/v4/rule_diagnostics](results/release/v4/rule_diagnostics/README.md)：
+它按真实最终 `rule_id` 汇总 C000/C196 的命中、正确/错误、Stage 去向和
+discovery/confirmation/full 分母，可继续用于 W、N1、N2、N3、REM 的规则局限分析，
+但不公开逐 epoch 或逐记录数据。
+
 ## 进一步阅读
 
 - [V4 变更记录](CHANGELOG_V4.md)
@@ -150,6 +156,7 @@ python -m pytest tests/v4 -q
 - [全空间搜索报告](reports/v4/exhaustive_search_report.md)
 - [机制归因报告](reports/v4/mechanistic_analysis_report.md)
 - [C196 规则发现报告](reports/v4/rule_discovery_report.md)
+- [C000/C196 聚合规则诊断](results/release/v4/rule_diagnostics/README.md)
 - [模型与第三方来源](model_cards/external_model_sources.json)
 - [V4 Educational Images](educational_images/v4/README.md)
 

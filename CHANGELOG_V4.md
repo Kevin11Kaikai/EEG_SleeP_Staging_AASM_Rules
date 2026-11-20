@@ -41,6 +41,9 @@
   variables.
 - Adds release-scope, third-party, model-source, and reproducibility records.
 - Adds aggregate-only verification scripts and V4 educational figures.
+- Publishes aggregate C000/C196 final-rule diagnostics for full, discovery, and
+  confirmation primary masks, including rule-to-stage counts and explicit
+  `NO_FIRINGS` handling without record-level traces.
 
 ## Compatibility
 

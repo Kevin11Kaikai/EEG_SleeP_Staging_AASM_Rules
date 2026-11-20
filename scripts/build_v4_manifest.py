@@ -31,6 +31,7 @@ INCLUDE = (
     ROOT / "scripts" / "reproduce_v4.py",
     ROOT / "scripts" / "validate_v4_release.py",
     ROOT / "scripts" / "build_v4_manifest.py",
+    ROOT / "scripts" / "export_v4_rule_diagnostics.py",
 )
 
 

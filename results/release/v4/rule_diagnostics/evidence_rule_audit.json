@@ -1,0 +1,35 @@
+{
+  "counts": {
+    "primary_epochs": 8902,
+    "reference_N1": 1012,
+    "invalid_signal": 24,
+    "blink_observed": 1179,
+    "blink_over_15": 0,
+    "alpha_over_15": 67,
+    "irregular_rem_normal_over_15": 8,
+    "lamf_over_15": 8097,
+    "n1_lamf_over_15": 971,
+    "reference_N2": 3597,
+    "reference_W": 1176,
+    "wake_blink_observed": 252,
+    "wake_blink_over_15": 0,
+    "wake_alpha_over_15": 65,
+    "wake_irregular_over_15": 8,
+    "reference_N3": 1534,
+    "n3_no_slow_wave": 281,
+    "n3_slow_wave_below_6": 875,
+    "reference_R": 1583,
+    "n3_slow_wave_at_least_6": 378
+  },
+  "maxima_seconds": {
+    "blink_seconds": 2.8359375,
+    "slow_wave_seconds": 19.578125
+  },
+  "n3_coverage": {
+    "support": 1534,
+    "no_slow_wave_fraction": 0.1831812255541069,
+    "below_6_seconds_fraction": 0.5704041720990873,
+    "at_least_6_seconds_fraction": 0.24641460234680573
+  },
+  "interpretation_boundary": "These are frozen evidence reachability counts, not event-level false-negative rates."
+}

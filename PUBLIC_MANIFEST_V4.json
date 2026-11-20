@@ -2,12 +2,12 @@
   "schema_version": 1,
   "release": "AASM_Rule_V4_Event_to_Stage_Optimization",
   "scope": "Public code and aggregate results; no raw PSG, weights, or record-level traces.",
-  "file_count": 166,
+  "file_count": 174,
   "files": [
     {
       "path": "CHANGELOG_V4.md",
-      "bytes": 1954,
-      "sha256": "71a6474006966886f4e50d32bf24a4df79451c3d498a47932d2c5c7b28dc17ad"
+      "bytes": 2161,
+      "sha256": "4a3f812d7012c3feaf2cdae4e9604f8485fc01f05abd165bd6ccb944b7980a25"
     },
     {
       "path": "configs/v4/detector_profiles/b000.json",
@@ -611,8 +611,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 7858,
-      "sha256": "8a788b918594f3e2e16502cb1dcbc7b01928f27175d44507bee88ed6ebe29402"
+      "bytes": 8302,
+      "sha256": "3a09556bb760f748adf3e28fa3e7e95bd0066423c5d86e3d1a987ae19dab6ef7"
     },
     {
       "path": "reports/v4/exhaustive_search_executive_summary.md",
@@ -750,6 +750,36 @@
       "sha256": "228f8664d0007dc5730ff0b837324d6cfb4f55ce5fdbb63a38e0b68d597dc170"
     },
     {
+      "path": "results/release/v4/rule_diagnostics/current_rule_diagnostics.csv",
+      "bytes": 832,
+      "sha256": "1b806d5aed11f2204145e52b50ff88ccfcea191a6cd80e966b152feef7fdc843"
+    },
+    {
+      "path": "results/release/v4/rule_diagnostics/evidence_rule_audit.json",
+      "bytes": 1006,
+      "sha256": "5d30ec79c6b41f66e6d8010099dc5da52a08ae56fbcafe7dc93f83be77e6e60e"
+    },
+    {
+      "path": "results/release/v4/rule_diagnostics/final_rule_diagnostics.csv",
+      "bytes": 8101,
+      "sha256": "bd23410d8c6e219f536e4d43f43079262bd47e7c75ecb48f94abd359c84c9093"
+    },
+    {
+      "path": "results/release/v4/rule_diagnostics/provenance.json",
+      "bytes": 5597,
+      "sha256": "ebf38ce40bbfd62a0b986f3792c84d220d50496d1b85d1b7e2124bc9053d20ba"
+    },
+    {
+      "path": "results/release/v4/rule_diagnostics/README.md",
+      "bytes": 6245,
+      "sha256": "0b17cd89bfccb254e565267a404633beea372b26c796a707db01ac4a16e07377"
+    },
+    {
+      "path": "results/release/v4/rule_diagnostics/rule_stage_counts.csv",
+      "bytes": 24071,
+      "sha256": "553647a26b891688492a1d7d9fae762f9198f6fbe5ee6ce049ca998811c08eea"
+    },
+    {
       "path": "results/release/v4/rule_discovery/c196_aggregate_summary.json",
       "bytes": 1535,
       "sha256": "2f7f88c47146f3086be240059df01250298f637f883f85e62f454263794e2e56"
@@ -771,13 +801,18 @@
     },
     {
       "path": "scripts/build_v4_manifest.py",
-      "bytes": 2289,
-      "sha256": "53338cd5077b904e9fc28d44e3d770c6a5d927e1852be202647c6a913bd810a8"
+      "bytes": 2345,
+      "sha256": "c6a653d2b1a0af5ab8d6122b3d319a1c26e77baea1f654e356572a76007fd186"
+    },
+    {
+      "path": "scripts/export_v4_rule_diagnostics.py",
+      "bytes": 25832,
+      "sha256": "94d919a518396ad20198cb42d89fbfebf5cc0b26b227564780fdf6306cb77a0c"
     },
     {
       "path": "scripts/reproduce_v4.py",
-      "bytes": 4283,
-      "sha256": "20baf42b0087f7301379bd4e59741448574b55c2217281c581e95fb8218e2ecf"
+      "bytes": 6678,
+      "sha256": "4484e41a7bf46cf5e2a71b74f8f6cfa32df37aa40246454d2e01c28d34660809"
     },
     {
       "path": "scripts/validate_v4_release.py",
@@ -828,6 +863,11 @@
       "path": "tests/v4/test_public_profiles.py",
       "bytes": 1778,
       "sha256": "a0bf740b8ce45b94d2a891115d5cc1c03b73dccf77811ca46ad182d89d728f26"
+    },
+    {
+      "path": "tests/v4/test_rule_diagnostics_release.py",
+      "bytes": 5501,
+      "sha256": "7e9e5e0dfd33de49ae0d03fddb8c1a6934566e26e4672cab7a6aef1c84401708"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",

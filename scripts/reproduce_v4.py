@@ -34,7 +34,16 @@ EXPECTED_M6408 = {
     "macro_f1": 0.44272863589516387,
     "coverage": 0.9946079532689284,
 }
-EXPECTED_C196_PAIRED = {"changed": 90, "corrected": 72, "introduced": 14, "net_correct": 58}
+EXPECTED_C196_PAIRED = {
+    "changed": 90,
+    "corrected": 72,
+    "introduced": 14,
+    "net_correct": 58,
+}
+EXPECTED_RULE_DIAGNOSTICS = {
+    "C000": {"n": 8902, "correct": 4947},
+    "C196": {"n": 8902, "correct": 5044},
+}
 
 
 def _assert_close(actual: float, expected: float, name: str) -> None:
@@ -50,18 +59,78 @@ def _load_json(path: Path) -> dict[str, Any]:
     return value
 
 
-def _reconstruct_from_confusion(confusion: list[list[int]]) -> tuple[list[str], list[str]]:
+def _reconstruct_from_confusion(
+    confusion: list[list[int]],
+) -> tuple[list[str], list[str]]:
     prediction_labels = (*STAGES, UNDETERMINED)
     reference: list[str] = []
     prediction: list[str] = []
     for truth_index, truth in enumerate(STAGES):
         row = confusion[truth_index]
         if len(row) != len(prediction_labels):
-            raise ValueError("released confusion matrix must have six prediction columns")
+            raise ValueError(
+                "released confusion matrix must have six prediction columns"
+            )
         for guess, count in zip(prediction_labels, row):
             reference.extend([truth] * int(count))
             prediction.extend([guess] * int(count))
     return reference, prediction
+
+
+def _recheck_rule_diagnostics(root: Path) -> dict[str, Any]:
+    diagnostics_root = root / "rule_diagnostics"
+    with (diagnostics_root / "final_rule_diagnostics.csv").open(
+        "r", encoding="utf-8", newline=""
+    ) as stream:
+        diagnostics = list(csv.DictReader(stream))
+    with (diagnostics_root / "rule_stage_counts.csv").open(
+        "r", encoding="utf-8", newline=""
+    ) as stream:
+        stage_counts = list(csv.DictReader(stream))
+
+    result: dict[str, Any] = {}
+    for profile, expected in EXPECTED_RULE_DIAGNOSTICS.items():
+        selected = [
+            row
+            for row in diagnostics
+            if row["rule_profile"] == profile and row["partition"] == "full"
+        ]
+        n = sum(int(row["count"]) for row in selected)
+        correct = sum(int(row["correct"]) for row in selected)
+        if (n, correct) != (expected["n"], expected["correct"]):
+            raise AssertionError(f"{profile} aggregate rule totals changed")
+        wake = [
+            row
+            for row in stage_counts
+            if row["rule_profile"] == profile
+            and row["partition"] == "full"
+            and row["predicted_stage"] == "W"
+        ]
+        wake_count = sum(int(row["count"]) for row in wake)
+        wake_correct = sum(
+            int(row["count"]) for row in wake if row["reference_stage"] == "W"
+        )
+        direct = sum(
+            int(row["count"])
+            for row in wake
+            if row["final_rule_id"] in {"W.1", "W.2", "W.3"}
+        )
+        fallback = sum(
+            int(row["count"])
+            for row in wake
+            if row["final_rule_id"].startswith("FALLBACK")
+        )
+        if (wake_count, wake_correct, direct, fallback) != (82, 80, 73, 9):
+            raise AssertionError(f"{profile} Wake path aggregation changed")
+        result[profile] = {
+            "n": n,
+            "correct": correct,
+            "wake_outputs": wake_count,
+            "wake_correct": wake_correct,
+            "direct_wake_rule_outputs": direct,
+            "fallback_wake_outputs": fallback,
+        }
+    return result
 
 
 def reproduce() -> dict[str, Any]:
@@ -69,7 +138,9 @@ def reproduce() -> dict[str, Any]:
     metrics_path = phase2 / "phase2_36arm" / "all_36_arm_metrics.csv"
     with metrics_path.open("r", encoding="utf-8", newline="") as stream:
         rows = list(csv.DictReader(stream))
-    baseline = next(row for row in rows if row["scope"] == "primary" and row["arm_id"] == "B000")
+    baseline = next(
+        row for row in rows if row["scope"] == "primary" and row["arm_id"] == "B000"
+    )
     if int(baseline["n"]) != EXPECTED_B000["n"]:
         raise AssertionError("B000 primary denominator changed")
     for metric in ("accuracy", "macro_f1", "coverage"):
@@ -95,6 +166,8 @@ def reproduce() -> dict[str, Any]:
         if int(paired[metric]) != expected:
             raise AssertionError(f"C196 paired {metric} changed")
 
+    rule_diagnostics = _recheck_rule_diagnostics(phase2)
+
     return {
         "status": "PUBLIC_AGGREGATE_RECHECK_PASS",
         "scope": "aggregate release only; no raw-signal replay",
@@ -105,6 +178,7 @@ def reproduce() -> dict[str, Any]:
             "recomputed_from_confusion": True,
         },
         "c196_paired": EXPECTED_C196_PAIRED,
+        "rule_diagnostics": rule_diagnostics,
     }
 
 

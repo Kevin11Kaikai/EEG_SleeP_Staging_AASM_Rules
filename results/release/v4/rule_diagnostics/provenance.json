@@ -1,0 +1,157 @@
+{
+  "detector_profile": {
+    "handlers": [
+      "E04",
+      "E11",
+      "SP",
+      "AR"
+    ],
+    "id": "M6408"
+  },
+  "export_method": "Read-only immutable SQLite aggregation plus frozen reference-shard masks; no replay or tuning.",
+  "export_source_commit": "2d24a34a8adec958bc0ce2114fd04ec7cfcfc5de",
+  "exported_file_sha256": {
+    "current_rule_diagnostics.csv": "1b806d5aed11f2204145e52b50ff88ccfcea191a6cd80e966b152feef7fdc843",
+    "evidence_rule_audit.json": "5d30ec79c6b41f66e6d8010099dc5da52a08ae56fbcafe7dc93f83be77e6e60e",
+    "final_rule_diagnostics.csv": "bd23410d8c6e219f536e4d43f43079262bd47e7c75ecb48f94abd359c84c9093",
+    "rule_stage_counts.csv": "553647a26b891688492a1d7d9fae762f9198f6fbe5ee6ce049ca998811c08eea"
+  },
+  "exporter": {
+    "artifact": "export_v4_rule_diagnostics.py",
+    "sha256": "94d919a518396ad20198cb42d89fbfebf5cc0b26b227564780fdf6306cb77a0c"
+  },
+  "frozen_run_implementation_manifest_sha256": "fd5458f634e299c68c5b6405fa8d47c382e66c530bf13288e99d1d8292868c15",
+  "frozen_run_source_commit": "UNAVAILABLE",
+  "missing_items": [
+    "Original run git commit was not captured."
+  ],
+  "partitions": {
+    "confirmation": {
+      "mask_definition": "in_primary == true in the frozen reference shard",
+      "primary_epoch_count": 4362,
+      "record_count": 5,
+      "reference_artifact": "confirmation.csv.gz",
+      "reference_row_count": 4572,
+      "reference_sha256": "decc0eb5ff9b73b1098bd3fac484ff4337e55da56e0cef23bb1c7e4c03432363"
+    },
+    "discovery": {
+      "mask_definition": "in_primary == true in the frozen reference shard",
+      "primary_epoch_count": 4540,
+      "record_count": 5,
+      "reference_artifact": "discovery.csv.gz",
+      "reference_row_count": 4640,
+      "reference_sha256": "fd8fa46e8ccc2d13c8bec63ae39499f95fa52853aaab3cd45fcae065bf69eed6"
+    },
+    "full": {
+      "mask_definition": "in_primary == true in the frozen reference shard",
+      "primary_epoch_count": 8902,
+      "record_count": 10,
+      "reference_artifact": "full.csv.gz",
+      "reference_row_count": 9212,
+      "reference_sha256": "c1260c19b214ddc1630bbc20259e52ee55cacf3b7a4e9d3b05620b781be95551"
+    }
+  },
+  "privacy_scope": "Aggregate counts only; no record list, local path, epoch row, patient data, labels, cache, or trace published.",
+  "rule_profiles": {
+    "C000": {
+      "config": {
+        "changed_modules": [],
+        "claim_types": [
+          "AASM_OPERATIONALIZATION"
+        ],
+        "complexity": 0,
+        "config_id": "C000",
+        "fallback_policy": "generic_inherit",
+        "n1_alpha_policy": "adjacent_attenuation",
+        "n1_nonalpha_policy": "any_marker",
+        "n2_continuation_policy": "prior_epoch_structure",
+        "parent_config": "temporal_r1",
+        "post_arousal_reentry_policy": "temporal_majority_first",
+        "rem_backward_policy": "off",
+        "rem_second_half_policy": "all_structure_blocks",
+        "source_ids": [
+          "FROZEN_TEMPORAL_R1"
+        ],
+        "wake_ocular_policy": "duration15"
+      },
+      "config_sha256": "599a94cbf70dc745132cbddc917817e6edbcaa71224ded1a3f2349a27b35c975"
+    },
+    "C196": {
+      "config": {
+        "changed_modules": [
+          "R.BACKWARD_BRIDGE",
+          "N2_POST_AROUSAL_REENTRY"
+        ],
+        "claim_types": [
+          "AASM_OPERATIONALIZATION",
+          "AASM_PUBLIC_UPDATE"
+        ],
+        "complexity": 2,
+        "config_id": "C196",
+        "fallback_policy": "generic_inherit",
+        "n1_alpha_policy": "adjacent_attenuation",
+        "n1_nonalpha_policy": "any_marker",
+        "n2_continuation_policy": "prior_epoch_structure",
+        "parent_config": "temporal_r1",
+        "post_arousal_reentry_policy": "structure_reentry_first",
+        "rem_backward_policy": "aasm_v21_backward_bridge",
+        "rem_second_half_policy": "all_structure_blocks",
+        "source_ids": [
+          "FROZEN_TEMPORAL_R1",
+          "AASM_V2_1_REM_BACKWARD",
+          "AASM_V2_1_N2_POST_AROUSAL"
+        ],
+        "wake_ocular_policy": "duration15"
+      },
+      "config_sha256": "cd0573adb81907fbc2f710b63dd7629ebbcd7fb1458ab67f2ac1f9cdc1a2ef5f"
+    }
+  },
+  "schema_version": "1.0",
+  "sealed_cache": {
+    "artifact": "rule_predictions.sqlite",
+    "configs_exported": [
+      "C000",
+      "C196"
+    ],
+    "record_level_payload_published": false,
+    "sha256": "9bb12a5460f50d1a838b6170ae6f44cd53cefc1f452eff649697513fd03f7d9b"
+  },
+  "selected_rule_config_identity": {
+    "changed_modules": [
+      "R.BACKWARD_BRIDGE",
+      "N2_POST_AROUSAL_REENTRY"
+    ],
+    "config_id": "C196",
+    "config_sha256": "cd0573adb81907fbc2f710b63dd7629ebbcd7fb1458ab67f2ac1f9cdc1a2ef5f",
+    "scientific_scope": "WITHIN_PROJECT_POST_HOC_CONFIRMATION"
+  },
+  "source_aggregate_artifacts": {
+    "current_rule_diagnostics.csv": "ebcef8e1468c51c9769275e5ffd3b0e0e24ac563f40d87214af993172eac3a2f",
+    "evidence_rule_audit.json": "5d30ec79c6b41f66e6d8010099dc5da52a08ae56fbcafe7dc93f83be77e6e60e"
+  },
+  "validations": {
+    "c000_wake_correct": 80,
+    "c000_wake_outputs": 82,
+    "correct_by_partition": {
+      "C000": {
+        "confirmation": 2588,
+        "discovery": 2359,
+        "full": 4947
+      },
+      "C196": {
+        "confirmation": 2646,
+        "discovery": 2398,
+        "full": 5044
+      }
+    },
+    "correct_plus_wrong_matches_count": true,
+    "full_correct": {
+      "C000": 4947,
+      "C196": 5044
+    },
+    "full_primary_epoch_count": 8902,
+    "original_c000_diagnostics_exactly_recomputed": true,
+    "rule_count_sum_matches_mask": true,
+    "rule_stage_counts_rebuild_confusion": true
+  }
+}
