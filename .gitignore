@@ -19,6 +19,17 @@ data/recordings/
 *.parquet
 *.feather
 results/local/
+outputs/
+frozen_dependencies/**/results/
+local_data/
+**/event_banks/
+**/evidence_banks/
+**/prediction_banks/
+**/overlay/
+**/raw_outputs/
+**/traces/
+*.sqlite
+*.safetensors
 **/events.json.gz
 **/evidence.json.gz
 **/predictions.json.gz
@@ -33,3 +44,6 @@ patient_exports/
 **/C??_paired.png
 **/selected_cases*.json
 
+# Aggregate, de-identified release artifacts are intentionally versioned.
+!results/release/
+!results/release/**

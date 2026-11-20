@@ -1,0 +1,13 @@
+max_wall_hours: 12
+seed: 2026
+coverage_tolerance: 0.005
+stage_f1_guardrail: 0.03
+worst_night_accuracy_delta: -0.05
+objective: record_equal_balanced_accuracy_macro_f1_lower_bound
+baseline_config_id: C000
+candidate_count: 384
+record_allowlist_from_environment: AASM_V4_RECORDS
+discovery_records_from_environment: AASM_V4_DISCOVERY_RECORDS
+expected_discovery_records: 5
+expected_confirmation_records: 5
+claim_scope: WITHIN_PROJECT_POST_HOC_CONFIRMATION

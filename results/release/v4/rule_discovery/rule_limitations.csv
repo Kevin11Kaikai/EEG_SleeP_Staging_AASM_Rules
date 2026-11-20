@@ -1,0 +1,6 @@
+limitation,old_rule,observed_firings,data_evidence,tested_repair,old_rule_precision
+Discrete blink encoded as >15s duration,W.2,0,"No W.2 final decisions in the 8,902 primary epochs",event-count/presence ocular semantics with EMG-tone guard,
+N1.2 accepts generic markers without explicit LAMF majority,N1.2,29,,LAMF majority plus SEM or vertex support,0.06896551724137931
+Post-arousal temporal majority may suppress structural N2 re-entry,N2.4.POST_AROUSAL_MAJORITY,771,,qualifying K/spindle structural re-entry before temporal majority,0.3463035019455253
+Generic previous-stage fallback lacks stage-specific termination,FALLBACK.INHERIT_PREVIOUS,1182,,stage-specific continuation and conservative abstention,0.4035532994923858
+REM continuation lacks definite-R backward bridge,R.2,219,,AASM v2.1 definite-R backward bridge,0.776255707762557

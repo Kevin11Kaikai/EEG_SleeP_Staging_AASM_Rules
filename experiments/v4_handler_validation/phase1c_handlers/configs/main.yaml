@@ -1,0 +1,50 @@
+schema_version: 1
+seed: 20261117
+historical_tournament: ${AASM_V4_TOURNAMENT_RUN}
+frozen_heritage_root: ${AASM_V4_FROZEN_HANDLER_ROOT}
+sleepedf_root: ${AASM_V4_SLEEPEDF_ROOT}
+families:
+  eeg_background:
+    window_seconds: 120
+    stride_seconds: 300
+    batch_size: 12
+    max_epochs: 8
+    minimum_epochs: 5
+    patience: 3
+    learning_rate: 0.001
+  eog_events:
+    window_seconds: 20
+    stride_seconds: 10
+    batch_size: 32
+    max_epochs: 8
+    minimum_epochs: 5
+    patience: 3
+    learning_rate: 0.001
+  chin_emg:
+    window_seconds: 120
+    stride_seconds: 60
+    batch_size: 24
+    max_epochs: 8
+    minimum_epochs: 5
+    patience: 3
+    learning_rate: 0.001
+  major_movement:
+    window_seconds: 120
+    stride_seconds: 60
+    batch_size: 12
+    max_epochs: 8
+    minimum_epochs: 5
+    patience: 3
+    learning_rate: 0.001
+negative_control_epochs: 2
+threshold_grid: [0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8]
+eventization:
+  E05: {minimum_seconds: 2.0, merge_gap_seconds: 0.5}
+  E06: {minimum_seconds: 0.1, merge_gap_seconds: 0.1}
+  E07: {minimum_seconds: 1.0, merge_gap_seconds: 0.3}
+  E08: {minimum_seconds: 1.0, merge_gap_seconds: 0.5}
+  E09: {minimum_seconds: 1.0, merge_gap_seconds: 0.5}
+  E10: {minimum_seconds: 1.0, merge_gap_seconds: 0.5}
+  E11: {minimum_seconds: 1.0, merge_gap_seconds: 0.5}
+  E12: {minimum_seconds: 1.0, merge_gap_seconds: 0.0}
+  E13: {minimum_seconds: 1.0, merge_gap_seconds: 0.0}

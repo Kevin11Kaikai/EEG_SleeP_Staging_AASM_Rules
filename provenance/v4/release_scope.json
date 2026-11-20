@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "release_name": "AASM_Rule_V4_Event_to_Stage_Optimization",
+  "research_scope": "event_handler_engineering_subset_search_and_aasm_inspired_rule_operationalization",
+  "evidence_scope": "within_project_development",
+  "public_artifacts": [
+    "portable source and configuration",
+    "aggregate event and stage metrics",
+    "complete aggregate 32768-subset leaderboard",
+    "aggregate component ablations",
+    "scientific reports",
+    "educational figures",
+    "artifact identities and provenance boundaries"
+  ],
+  "excluded_artifacts": [
+    "raw PSG or clinical waveforms",
+    "expert labels and patient metadata",
+    "model checkpoints and third-party binaries",
+    "event evidence and prediction banks",
+    "record night epoch and event level results",
+    "signal pointers and rule traces",
+    "local machine paths caches and credentials"
+  ],
+  "claim_boundaries": [
+    "HMC is a repeatedly reused development cohort",
+    "C196 confirmation is within-project and post-hoc at the program level",
+    "stage utility does not prove event accuracy",
+    "weak-teacher fidelity is not expert-event validation",
+    "E13 is a movement proxy rather than a validated MBM detector",
+    "C196 is an engineering operationalization rather than an AASM-certified rule set"
+  ],
+  "frozen_heritage": [
+    "AASM-inspired Enhanced V2",
+    "Temporal R1",
+    "Phase 1 model artifacts",
+    "Phase 2 source event banks"
+  ],
+  "release_checks": [
+    "no forbidden model or signal extensions",
+    "no machine-specific absolute paths",
+    "no patient or night level result tables",
+    "aggregate metric reproduction",
+    "configuration and schema tests"
+  ]
+}

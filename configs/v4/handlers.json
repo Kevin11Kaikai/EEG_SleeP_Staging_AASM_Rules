@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "scope_note": "Handler identity and evidence status only; weights and patient-level data are not redistributed.",
+  "handlers": [
+    {
+      "handler_id": "E01",
+      "event_type": "slow_wave",
+      "selected_source": "SSSM",
+      "output_kind": "event_intervals",
+      "evidence_level": "prototype_only",
+      "independent_event_validation": false
+    },
+    {
+      "handler_id": "E02",
+      "event_type": "kcomplex",
+      "selected_source": "K08_spectrogram_unet",
+      "output_kind": "event_intervals",
+      "evidence_level": "expert_supported",
+      "independent_event_validation": true,
+      "known_downstream_result": "HMC development-set N2 regression"
+    },
+    {
+      "handler_id": "E03",
+      "event_type": "vertex",
+      "selected_source": "SSSM",
+      "output_kind": "event_intervals",
+      "evidence_level": "prototype_only",
+      "independent_event_validation": false
+    },
+    {
+      "handler_id": "E04",
+      "event_type": "rem",
+      "selected_source": "R04_gru_fcn",
+      "output_kind": "event_intervals",
+      "evidence_level": "expert_supported",
+      "independent_event_validation": true
+    },
+    {
+      "handler_id": "E05",
+      "event_type": "alpha",
+      "selected_source": "eeg_background_temporal_net",
+      "output_kind": "continuous_activity",
+      "evidence_level": "weak_supervision_only",
+      "independent_event_validation": false
+    },
+    {
+      "handler_id": "E06",
+      "event_type": "blink",
+      "selected_source": "eog_events_temporal_net",
+      "output_kind": "event_intervals",
+      "evidence_level": "weak_supervision_only",
+      "independent_event_validation": false
+    },
+    {
+      "handler_id": "E07",
+      "event_type": "sem",
+      "selected_source": "sem_temporal_tcn",
+      "output_kind": "event_intervals",
+      "evidence_level": "weak_supervision_only",
+      "independent_event_validation": false
+    },
+    {
+      "handler_id": "E08",
+      "event_type": "lamf",
+      "selected_source": "eeg_background_temporal_net",
+      "output_kind": "continuous_activity",
+      "evidence_level": "weak_supervision_only",
+      "independent_event_validation": false
+    },
+    {
+      "handler_id": "E09",
+      "event_type": "low_emg",
+      "selected_source": "chin_emg_temporal_net",
+      "output_kind": "continuous_activity",
+      "evidence_level": "weak_supervision_only",
+      "independent_event_validation": false
+    },
+    {
+      "handler_id": "E10",
+      "event_type": "normal_emg",
+      "selected_source": "chin_emg_temporal_net",
+      "output_kind": "continuous_activity",
+      "evidence_level": "weak_supervision_only",
+      "independent_event_validation": false
+    },
+    {
+      "handler_id": "E11",
+      "event_type": "high_emg",
+      "selected_source": "chin_emg_temporal_net",
+      "output_kind": "continuous_activity",
+      "evidence_level": "weak_supervision_only",
+      "independent_event_validation": false
+    },
+    {
+      "handler_id": "E12",
+      "event_type": "slowing",
+      "selected_source": "eeg_background_temporal_net",
+      "output_kind": "continuous_activity",
+      "evidence_level": "weak_supervision_only",
+      "independent_event_validation": false
+    },
+    {
+      "handler_id": "E13",
+      "event_type": "major_body_movement",
+      "selected_source": "major_movement_temporal_net",
+      "output_kind": "event_intervals",
+      "evidence_level": "movement_proxy",
+      "independent_event_validation": false
+    },
+    {
+      "handler_id": "SP",
+      "event_type": "spindle",
+      "selected_source": "SUMOv2",
+      "output_kind": "event_intervals",
+      "evidence_level": "expert_supported",
+      "independent_event_validation": true
+    },
+    {
+      "handler_id": "AR",
+      "event_type": "arousal",
+      "selected_source": "PSGScoring_unet",
+      "output_kind": "event_intervals",
+      "evidence_level": "expert_supported",
+      "independent_event_validation": true
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+inherited_tcn:
+  input_channels: 2
+  strides: [2, 5]
+  base_channels: 12
+  residual_blocks: 3
+cnn_bigru:
+  input_channels: 2
+  convolution_channels: 24
+  hidden_size: 32
+  bidirectional: true

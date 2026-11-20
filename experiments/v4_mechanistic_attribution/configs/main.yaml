@@ -1,0 +1,10 @@
+{
+  "source_root": "${AASM_V4_PHASE2_RUN}",
+  "output_base": "${AASM_V4_RESULTS_ROOT}",
+  "reference_path": "${AASM_V4_REFERENCE_PATH}",
+  "expected_reference_sha256": "3ca05fdb8eac29bf9ba4d484b9ff52ced04a4bc586e39fcd76f9f60610e8dd27",
+  "bootstrap_draws": 4000,
+  "bootstrap_seed": 2026,
+  "expected_primary_epochs": 8902,
+  "expected_full_valid_epochs": 9211
+}

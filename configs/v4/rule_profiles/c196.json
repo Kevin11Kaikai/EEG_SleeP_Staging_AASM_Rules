@@ -1,0 +1,32 @@
+{
+  "config_id": "C196",
+  "rem_backward_policy": "aasm_v21_backward_bridge",
+  "wake_ocular_policy": "duration15",
+  "n1_alpha_policy": "adjacent_attenuation",
+  "n1_nonalpha_policy": "any_marker",
+  "n2_continuation_policy": "prior_epoch_structure",
+  "post_arousal_reentry_policy": "structure_reentry_first",
+  "fallback_policy": "generic_inherit",
+  "rem_second_half_policy": "all_structure_blocks",
+  "source_ids": [
+    "FROZEN_TEMPORAL_R1",
+    "AASM_V2_1_REM_BACKWARD",
+    "AASM_V2_1_N2_POST_AROUSAL"
+  ],
+  "claim_types": [
+    "AASM_OPERATIONALIZATION",
+    "AASM_PUBLIC_UPDATE"
+  ],
+  "changed_modules": [
+    "R.BACKWARD_BRIDGE",
+    "N2_POST_AROUSAL_REENTRY"
+  ],
+  "complexity": 2,
+  "parent_config": "temporal_r1",
+  "config_sha256": "cd0573adb81907fbc2f710b63dd7629ebbcd7fb1458ab67f2ac1f9cdc1a2ef5f",
+  "split_protocol": "predeclared_record_disjoint_discovery_confirmation",
+  "selection_record_count": 5,
+  "confirmation_record_count": 5,
+  "confirmation_labels_accessed_by_selector": false,
+  "scientific_scope": "WITHIN_PROJECT_POST_HOC_CONFIRMATION"
+}

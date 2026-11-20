@@ -1,0 +1,19 @@
+{
+  "release_id": "AASM_V4_EVENT_TO_STAGE_RESEARCH",
+  "dataset_scope": "HMC_DEVELOPMENT_SET",
+  "primary_epoch_count": 8902,
+  "full_valid_epoch_count": 9211,
+  "subset_space_size": 32768,
+  "detector_champion": "M_6408",
+  "selected_rule_profile": "C196",
+  "public_artifact_policy": {
+    "aggregate_metrics": true,
+    "portable_source_code": true,
+    "educational_images": true,
+    "raw_signals": false,
+    "patient_level_predictions": false,
+    "event_or_evidence_banks": false,
+    "model_weights": false
+  },
+  "claim_boundary": "Development-set research evidence; not external clinical validation or AASM certification."
+}

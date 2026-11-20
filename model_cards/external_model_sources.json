@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0",
+  "release": "AASM-inspired V4 research release",
+  "policy": "No third-party or locally trained checkpoint is distributed.",
+  "sources": [
+    {
+      "model_id": "PSGSCORING_UNET_AROUSAL",
+      "role": "arousal event source",
+      "source_url": "https://github.com/bartromb/psgscoring",
+      "source_revision": "7271cb089feacb585332ed0db8a375019548702d",
+      "license_observed_in_sealed_audit": "BSD-3-Clause",
+      "checkpoint_distributed": false,
+      "redistribution_status": "not_assumed",
+      "validation_boundary": "PSG-IPA event evidence and within-project HMC development stage utility"
+    },
+    {
+      "model_id": "SSSM",
+      "role": "slow-wave and vertex research source",
+      "source_url": "https://pypi.org/project/sssm/",
+      "source_revision": null,
+      "license_observed_in_sealed_audit": "upstream_metadata_applies",
+      "checkpoint_distributed": false,
+      "redistribution_status": "not_assumed",
+      "validation_boundary": "functional inference; no independent HMC slow-wave or vertex event truth"
+    },
+    {
+      "model_id": "SUMOV2_SPINDLE",
+      "role": "spindle event source",
+      "source_url": null,
+      "source_revision": "recorded_in_sealed_study_manifest",
+      "license_observed_in_sealed_audit": "redistribution_not_established",
+      "checkpoint_distributed": false,
+      "redistribution_status": "withheld",
+      "validation_boundary": "expert-event evidence plus within-project HMC development stage utility"
+    },
+    {
+      "model_id": "K08_SPECTROGRAM_UNET",
+      "role": "K-complex research source",
+      "source_url": null,
+      "source_revision": "locally_trained_research_model",
+      "license_observed_in_sealed_audit": "project_research_artifact",
+      "checkpoint_distributed": false,
+      "redistribution_status": "withheld",
+      "validation_boundary": "DREAMS event gain with downstream HMC N2 regression"
+    },
+    {
+      "model_id": "R04_GRU_FCN",
+      "role": "rapid eye movement research source",
+      "source_url": null,
+      "source_revision": "locally_trained_research_model",
+      "license_observed_in_sealed_audit": "project_research_artifact",
+      "checkpoint_distributed": false,
+      "redistribution_status": "withheld",
+      "validation_boundary": "DREAMS event evidence and within-project HMC development stage utility"
+    },
+    {
+      "model_id": "PHASE1C_1D_TEMPORAL_HANDLERS",
+      "role": "alpha, blink, LAMF, EMG tone, slowing, and movement-proxy sources",
+      "source_url": null,
+      "source_revision": "locally_trained_weak_supervision_models",
+      "license_observed_in_sealed_audit": "project_research_artifact",
+      "checkpoint_distributed": false,
+      "redistribution_status": "withheld",
+      "validation_boundary": "functional handler evidence; mostly weak-teacher, E13 remains a movement proxy"
+    },
+    {
+      "model_id": "PHASE1D_SEM_TCN",
+      "role": "slow eye movement source",
+      "source_url": null,
+      "source_revision": "locally_trained_weak_supervision_model",
+      "license_observed_in_sealed_audit": "project_research_artifact",
+      "checkpoint_distributed": false,
+      "redistribution_status": "withheld",
+      "validation_boundary": "functional weak-supervision-only handler; expert event accuracy not independently validated"
+    }
+  ]
+}

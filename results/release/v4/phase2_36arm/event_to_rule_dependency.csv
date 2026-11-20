@@ -1,0 +1,16 @@
+handler_id,handler,event_type,derived_evidence,reachable_rules,reachable_stages,neural_event_count,rule_changed_epochs,evidence_ids_changed_epochs,scientific_boundary
+E01,Slow-wave,slow_wave,slow_wave,N3.1,N3,14282,551,766,stage utility only; no independent HMC event truth
+E02,K-complex,kcomplex,kcomplex;n2_kcomplex,N2.1;N2.2;R.1;R.2;R.3,N2;R,2060,2818,4891,stage utility only; no independent HMC event truth
+E03,Vertex,vertex,vertex,N1.2,N1,9929,30,34,stage utility only; no independent HMC event truth
+E04,REM,rem,rem;rem_low_overlap;irregular_rem_normal,W.3;R.1;R.2;R.3,W;N1;N2;R,6346,527,1088,stage utility only; no independent HMC event truth
+E05,Alpha,alpha,alpha;alpha_generator,W.1;N1.1;MBM.1,W;N1;movement resolution,876,862,1036,stage utility only; no independent HMC event truth
+E06,Blink,blink,blink,W.2,W,15197,13,13,stage utility only; no independent HMC event truth
+E07,SEM,sem,sem;arousal_then_sem,N1.2;N2.4.MBM_SEM;R.2;R.3.AROUSAL_SEM,N1;N2;R,494,17,25,stage utility only; no independent HMC event truth
+E08,LAMF,lamf,lamf,N1.1;N2.2;N2.4;R.1;R.2;R.3,N1;N2;R,9970,21,3015,stage utility only; no independent HMC event truth
+E09,Low EMG,low_emg,low_emg;rem_low_overlap,R.1;R.2,R,8680,112,901,stage utility only; no independent HMC event truth
+E10,Normal EMG,normal_emg,normal_emg;irregular_rem_normal,W.3,W,1813,2,6,stage utility only; no independent HMC event truth
+E11,High EMG,high_emg,high_emg,R.3.EMG_N1,N1;R termination,7150,55,53,stage utility only; no independent HMC event truth
+E12,Slowing,slowing,slowing,N1.2,N1,40226,257,268,stage utility only; no independent HMC event truth
+E13,MBM proxy,mbm,mbm,MBM.1;MBM.2;N2.4.MBM_SEM,W;N1;movement/abstention,13916,879,800,stage utility only; no independent HMC event truth
+SP,Spindle,spindle,spindle;n2_spindle,N2.1;N2.2;R.1;R.2;R.3,N2;R,12090,1006,4177,stage utility only; no independent HMC event truth
+AR,Arousal,arousal,arousal;arousal_then_sem;n2_kcomplex,N2.1;N2.2;N2.4;R.2;R.3,N1;N2;R,1232,2858,3324,stage utility only; no independent HMC event truth

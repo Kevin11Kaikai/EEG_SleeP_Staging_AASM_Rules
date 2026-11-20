@@ -1,0 +1,12 @@
+schema_version: 1
+experiment: AASM_V4_PHASE2_36_ARM
+max_wall_hours: 12
+records_from_environment: AASM_V4_RECORDS
+expected_record_count: 10
+primary_metric: macro_f1
+primary_mask_epochs: 8902
+full_valid_epochs: 9211
+bootstrap_draws: 2000
+bootstrap_seed: 2026
+training_allowed: false
+hmc_checkpoint_selection_allowed: false

@@ -1,0 +1,58 @@
+{
+  "profile": "C196",
+  "parent_rule_profile": "temporal_r1",
+  "fixed_detector_profile": "M_6408",
+  "changed_modules": [
+    "R.BACKWARD_BRIDGE",
+    "N2_POST_AROUSAL_REENTRY"
+  ],
+  "selection_protocol": {
+    "discovery_records": 5,
+    "confirmation_records": 5,
+    "confirmation_labels_accessed_by_selector": false,
+    "scope": "WITHIN_PROJECT_POST_HOC_CONFIRMATION"
+  },
+  "confirmation": {
+    "epochs": 4362,
+    "temporal_r1": {
+      "accuracy": 0.5933058230169647,
+      "macro_f1": 0.48299928638295214,
+      "coverage": 0.9924346629986245
+    },
+    "c196": {
+      "accuracy": 0.6066024759284732,
+      "macro_f1": 0.49447520544852586,
+      "coverage": 0.9926639156350298
+    },
+    "delta": {
+      "accuracy": 0.0132966529115085,
+      "macro_f1": 0.011475919065573714,
+      "coverage": 0.00022925263640527493
+    },
+    "paired": {
+      "changed": 90,
+      "corrected": 72,
+      "introduced": 14,
+      "net_correct": 58
+    }
+  },
+  "full_development_set": {
+    "epochs": 8902,
+    "temporal_r1": {
+      "accuracy": 0.555717816221074,
+      "macro_f1": 0.44272863589516387,
+      "coverage": 0.9946079532689284
+    },
+    "c196": {
+      "accuracy": 0.5666142439901146,
+      "macro_f1": 0.4513308352653924,
+      "coverage": 0.9947202875758256
+    },
+    "delta": {
+      "accuracy": 0.01089642776904065,
+      "macro_f1": 0.008602199370228547,
+      "coverage": 0.00011233430689727708
+    }
+  },
+  "claim_boundary": "Development-set rule study; not external clinical validation or AASM certification."
+}

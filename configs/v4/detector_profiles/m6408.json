@@ -1,0 +1,10 @@
+{
+  "profile_id": "M_6408",
+  "parent_profile": "B000",
+  "enabled_handlers": ["E04", "E11", "SP", "AR"],
+  "selection_scope": "exact_32768_subset_search",
+  "scientific_scope": "WITHIN_PROJECT_HMC_DEVELOPMENT_SET",
+  "mask": 25608,
+  "cardinality": 4,
+  "description": "Development-set accuracy and constrained-balanced champion."
+}

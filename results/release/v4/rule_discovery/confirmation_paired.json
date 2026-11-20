@@ -1,0 +1,34 @@
+{
+  "changed": 90,
+  "corrected": 72,
+  "introduced": 14,
+  "net_correct": 58,
+  "transitions": {
+    "N1->R": 44,
+    "N1->N2": 14,
+    "N2->R": 31,
+    "UNDETERMINED->R": 1
+  },
+  "by_reference_stage": {
+    "W": {
+      "corrected": 0,
+      "introduced": 0
+    },
+    "N1": {
+      "corrected": 0,
+      "introduced": 11
+    },
+    "N2": {
+      "corrected": 9,
+      "introduced": 3
+    },
+    "N3": {
+      "corrected": 0,
+      "introduced": 0
+    },
+    "R": {
+      "corrected": 63,
+      "introduced": 0
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "scope": "Educational illustrations; not primary scientific evidence.",
+  "images": [
+    {
+      "file": "v4_01_event_to_stage_overview.png",
+      "topic": "Signal-to-handler-to-evidence-to-rule pipeline",
+      "source": "Repository contracts and V4 architecture"
+    },
+    {
+      "file": "v4_02_fifteen_handler_map.png",
+      "topic": "Fifteen replaceable physiological evidence sources",
+      "source": "configs/v4/handlers.json"
+    },
+    {
+      "file": "v4_03_exhaustive_combination_search.png",
+      "topic": "Exact evaluation of all 2^15 detector combinations",
+      "source": "results/release/v4/exhaustive_search/full_development_champions.json"
+    },
+    {
+      "file": "v4_04_m6408_champion_anatomy.png",
+      "topic": "M_6408 composition and fixed-mask aggregate gains",
+      "source": "results/release/v4/exhaustive_search/full_development_champions.json"
+    },
+    {
+      "file": "v4_05_b000_to_c196_performance.png",
+      "topic": "Confirmation-split performance from B000 through M_6408 to C196",
+      "source": "results/release/v4/rule_discovery/c196_aggregate_summary.json"
+    },
+    {
+      "file": "v4_06_c196_temporal_rules.png",
+      "topic": "C196 rule changes and remaining limitations",
+      "source": "configs/v4/rule_profiles/c196.json"
+    },
+    {
+      "file": "v4_07_when_better_events_fail.png",
+      "topic": "Event-to-stage failure mechanisms and positive controls",
+      "source": "reports/v4/mechanistic_analysis_report.md"
+    },
+    {
+      "file": "v4_08_evidence_and_validation_boundaries.png",
+      "topic": "Evidence tiers, public release boundary, and unresolved validation",
+      "source": "provenance/v4/release_scope.json"
+    }
+  ],
+  "generation_note": "Raster educational illustrations were generated from the listed aggregate evidence and manually checked against the released numbers. They do not contain raw PSG, model weights, or patient-level traces."
+}

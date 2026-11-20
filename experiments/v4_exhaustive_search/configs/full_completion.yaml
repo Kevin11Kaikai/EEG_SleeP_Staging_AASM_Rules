@@ -1,0 +1,17 @@
+schema_version: 1
+experiment: AASM_V4_PHASE2_EXACT_EXHAUSTIVE_CLOSEOUT
+max_wall_hours: 12
+replay_wall_hours: 10.5
+worker_count: 14
+masks_per_chunk: 512
+shards_per_record: 8
+restart_every_chunks: 4
+benchmark_masks: 512
+exhaustive_rate_threshold_per_hour: 1200
+seed: 2026
+coverage_floor: 0.99
+epsilon: 0.000001
+training_allowed: false
+rule_modification_allowed: false
+outside_record_allowlist_allowed: false
+scientific_label: POST_SELECTION_EXHAUSTIVE_NESTED_HMC_DEV_SEARCH

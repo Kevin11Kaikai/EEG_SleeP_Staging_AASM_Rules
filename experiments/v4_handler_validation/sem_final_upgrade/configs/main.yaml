@@ -1,0 +1,40 @@
+schema_version: 1
+seed: 20261117
+phase1c_result: ${AASM_V4_PHASE1C_RUN}
+phase1c_code: experiments/v4_handler_validation/phase1c_handlers
+historical_tournament: ${AASM_V4_TOURNAMENT_RUN}
+frozen_heritage_root: ${AASM_V4_FROZEN_HANDLER_ROOT}
+psg_ipa_root: ${AASM_V4_PSG_IPA_ROOT}
+output_root: ${AASM_V4_RESULTS_ROOT}
+model:
+  architecture: inherited_tcn
+  input_rate_hz: 100
+  output_rate_hz: 10
+  window_seconds: 20
+  train_stride_seconds: 20
+  inference_stride_seconds: 10
+  batch_size: 64
+  maximum_epochs: 30
+  minimum_epochs: 8
+  patience: 6
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  positive_window_weight: 20.0
+  hard_negative_window_weight: 4.0
+  positive_loss_weight: 1.0
+  dice_weight: 0.5
+  label_shuffle_epochs: 5
+selection:
+  threshold_grid: [0.1, 0.15, 0.2, 0.25, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.85, 0.9, 0.95, 0.975, 0.99]
+  minimum_iou: 0.2
+eventization:
+  minimum_seconds: 1.0
+  maximum_seconds: 5.0
+  merge_gap_seconds: 0.3
+split:
+  psg_ipa_train: [SN1_EEGarousals, SN2_EEGarousals, SN4_EEGarousals]
+  psg_ipa_validation: [SN3_EEGarousals]
+  psg_ipa_positive_challenge: [SN5_EEGarousals]
+  dreams_train_groups: [G01, G02, G03, G06, G07, G08]
+  dreams_validation_groups: [G04, G09]
+  dreams_original_test_groups: [G05, G10]

@@ -1,0 +1,9 @@
+{
+  "fixed_mask_labels": ["W", "N1", "N2", "N3", "R"],
+  "abstention_label": "UNDETERMINED",
+  "single_comparator": "B000",
+  "full_arm": "F_ALL15",
+  "loo_sign": "M(F_ALL15)-M(L_e); positive means the handler helps the full system",
+  "interaction_definition": "[M(G)-M(B000)]-sum_e[M(S_e)-M(B000)]",
+  "scientific_boundary": "HMC ten-record development-set mechanistic analysis; no event truth for most handlers and no external validation"
+}

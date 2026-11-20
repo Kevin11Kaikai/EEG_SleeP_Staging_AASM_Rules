@@ -1,0 +1,8 @@
+{
+  "profile_id": "B000",
+  "parent_profile": null,
+  "enabled_handlers": [],
+  "selection_scope": "frozen_v3_event_bank",
+  "scientific_scope": "WITHIN_PROJECT_HMC_DEVELOPMENT_SET",
+  "description": "Frozen detector baseline used as the common reference for subset search."
+}
