@@ -64,6 +64,11 @@ Temporal R1，C196 额外带来 Accuracy **+1.3296 points** 和 Macro-F1 **+1.14
 
 ![C196 temporal rules](educational_images/v4/v4_06_c196_temporal_rules.png)
 
+下面的教学图按源码区分规则优先级、continuation、inheritance 与 fallback，
+并明确标出 C196 相对冻结 C000 / Temporal R1 只增加的两处 temporal repair。
+
+![C000 and C196 rule-engine walkthrough](educational_images/v4/v4_09_rule_engine_walkthrough.png)
+
 这些结果支持“先优化感知输入，再优化其可消费的决策逻辑”，但仍属于
 `WITHIN_PROJECT_POST_HOC_CONFIRMATION`。C196 是工程化 AASM operationalization，
 不是新的临床规则标准。

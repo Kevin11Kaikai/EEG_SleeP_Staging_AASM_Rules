@@ -2,7 +2,7 @@
   "schema_version": 1,
   "release": "AASM_Rule_V4_Event_to_Stage_Optimization",
   "scope": "Public code and aggregate results; no raw PSG, weights, or record-level traces.",
-  "file_count": 174,
+  "file_count": 175,
   "files": [
     {
       "path": "CHANGELOG_V4.md",
@@ -41,13 +41,13 @@
     },
     {
       "path": "educational_images/v4/README.md",
-      "bytes": 1987,
-      "sha256": "3c866ecf892d297d47eed37775372ad09dec36535b63c272d50c71623eddd9f2"
+      "bytes": 2167,
+      "sha256": "0700b0cf723f0943b63faa197c7af04d0e1e2f4c6fdedb24d55d477e949c7c1e"
     },
     {
       "path": "educational_images/v4/source_manifest.json",
-      "bytes": 1937,
-      "sha256": "2a009855f4f57b9f3758660a744e832a940137fc5e47844fb09a0eaba06b1fde"
+      "bytes": 2225,
+      "sha256": "5f4c3ea7b4b1a3d29b88d7d1cda0d97eaa1705a9b9278e8995735b2942ae095f"
     },
     {
       "path": "educational_images/v4/v4_01_event_to_stage_overview.png",
@@ -88,6 +88,11 @@
       "path": "educational_images/v4/v4_08_evidence_and_validation_boundaries.png",
       "bytes": 1714368,
       "sha256": "4e7b8ca47f7fe62fa3ac8cd137ee762e5147ea4a90e39a8f36997138b3eb2fdf"
+    },
+    {
+      "path": "educational_images/v4/v4_09_rule_engine_walkthrough.png",
+      "bytes": 2098390,
+      "sha256": "0728fe22b6ccde4d4651ba108c28ca62da43a9d8e18afe6a77319be58c94c45c"
     },
     {
       "path": "experiments/v4_36arm_ablation/__init__.py",
@@ -611,8 +616,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 8302,
-      "sha256": "3a09556bb760f748adf3e28fa3e7e95bd0066423c5d86e3d1a987ae19dab6ef7"
+      "bytes": 8587,
+      "sha256": "ada560ead4eb8c9f0e0fd98538a7feee4d9ca7f940acb725865c5b03ada458f6"
     },
     {
       "path": "reports/v4/exhaustive_search_executive_summary.md",

@@ -40,6 +40,11 @@
       "file": "v4_08_evidence_and_validation_boundaries.png",
       "topic": "Evidence tiers, public release boundary, and unresolved validation",
       "source": "provenance/v4/release_scope.json"
+    },
+    {
+      "file": "v4_09_rule_engine_walkthrough.png",
+      "topic": "Frozen C000 decision chain and the two incremental C196 temporal repairs",
+      "source": "src/aasm_temporal_r1/engine.py; experiments/v4_rule_discovery/shadow_engine.py; configs/v4/rule_profiles/c196.json"
     }
   ],
   "generation_note": "Raster educational illustrations were generated from the listed aggregate evidence and manually checked against the released numbers. They do not contain raw PSG, model weights, or patient-level traces."

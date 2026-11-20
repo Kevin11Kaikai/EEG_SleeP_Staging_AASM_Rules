@@ -14,6 +14,7 @@ not the numerical evidence source. Exact values come from
 | `v4_06_c196_temporal_rules.png` | Which two temporal decisions changed in C196? | Frozen C196 profile and component ablation |
 | `v4_07_when_better_events_fail.png` | Why can a better event proposal harm a rule system? | Mechanistic attribution results |
 | `v4_08_evidence_and_validation_boundaries.png` | Which claims are supported and which still need external validation? | Release-scope and scientific-claim audits |
+| `v4_09_rule_engine_walkthrough.png` | How do frozen C000 rules turn epoch evidence into a stage, and what exactly changes in C196? | Temporal R1 source and frozen C196 profile |
 
 Additional quantitative plots are available under
 `results/release/v4/figures/`. They retain the aggregate views used in the
